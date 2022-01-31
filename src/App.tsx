@@ -6,7 +6,6 @@ import RoutesData from './presentation/routes/routes';
 import './application/style/common.scss';
 
 function App() {
-  console.log('uj');
   return (
     <Provider store={store}>
       <div className="App">
