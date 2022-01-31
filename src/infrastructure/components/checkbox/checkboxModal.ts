@@ -2,13 +2,13 @@ export type CheckboxProps = {
   checked?: boolean;
   checkedIcon?: React.ReactNode;
   color?:
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'error'
-    | 'info'
-    | 'success'
-    | 'warning';
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'error'
+  | 'info'
+  | 'success'
+  | 'warning';
   defaultChecked?: boolean;
   disabled?: boolean;
   id?: string;
@@ -19,4 +19,6 @@ export type CheckboxProps = {
   value?: any;
   inputRef?: any;
   label?: any;
+  registeredEvents?: any;
+  isControlled?: boolean;
 };

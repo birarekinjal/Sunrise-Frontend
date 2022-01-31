@@ -16,27 +16,49 @@ const CustomCheckBox: React.FC<CheckboxProps> = ({
   value,
   onChange,
   label,
+  isControlled,
+  registeredEvents,
 }) => {
   return (
     <>
       <FormGroup>
-        <FormControlLabel
-          control={
-            <Checkbox
-              size={size}
-              color={color}
-              checked={checked}
-              disabled={disabled}
-              defaultChecked={defaultChecked}
-              id={id}
-              inputRef={inputRef}
-              required={required}
-              value={value}
-              onChange={onChange}
-            />
-          }
-          label={label}
-        />
+        {isControlled ? (
+          <FormControlLabel
+            control={
+              <Checkbox
+                size={size}
+                color={color}
+                checked={checked}
+                disabled={disabled}
+                defaultChecked={defaultChecked}
+                id={id}
+                inputRef={inputRef}
+                required={required}
+                value={value}
+                onChange={onChange}
+              />
+            }
+            label={label}
+          />
+        ) : (
+          <FormControlLabel
+            control={
+              <Checkbox
+                {...(registeredEvents || {})}
+                size={size}
+                color={color}
+                checked={checked}
+                disabled={disabled}
+                defaultChecked={defaultChecked}
+                id={id}
+                required={required}
+                value={value}
+                onChange={onChange}
+              />
+            }
+            label={label}
+          />
+        )}
       </FormGroup>
     </>
   );
