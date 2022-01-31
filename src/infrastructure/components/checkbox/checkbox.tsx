@@ -19,7 +19,6 @@ const CustomCheckBox: React.FC<CheckboxProps> = ({
   isControlled,
   registeredEvents,
 }) => {
-  console.log('abc');
   return (
     <>
       <FormGroup>
