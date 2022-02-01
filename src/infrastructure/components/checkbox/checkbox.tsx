@@ -3,6 +3,7 @@ import { Checkbox } from '@mui/material';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { CheckboxProps } from './checkboxModal';
+import './checkbox.scss';
 
 const CustomCheckBox: React.FC<CheckboxProps> = ({
   size,

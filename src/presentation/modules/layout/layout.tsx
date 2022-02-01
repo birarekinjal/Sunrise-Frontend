@@ -293,57 +293,12 @@ const Layout = () => {
 
       <h1>Input with type and required props</h1>
       <Input type='text'  required placeholder='Enter Text..' label='Enter Text' name='text' /><br></br><br></br>
-      <Input type='file' required placeholder='Choose File..' label='Choose File' name='file' /><br></br><br></br>
-      <Input type='color' required placeholder='Choose color..' label='Choose color' name='color' /><br></br><br></br>
-      <Input type='date' required placeholder='Choose Date..' label='Choose Date' name='date' /><br></br><br></br>
-      <Input type='datetime-local' required placeholder='Enter datetime-local..' label='Enter datetime-local' name='datetime-local' /><br></br><br></br>
-      <Input type='email' required placeholder='Enter email..' label='Enter email' name='email' /><br></br><br></br>
-      <Input type='number' required placeholder='number' label='number' name='number' /><br></br><br></br>
-      <Input type='password' required placeholder='password' label='password' name='password' /><br></br><br></br>
-      <Input type='range' required placeholder='range' label='range' name='range' /><br></br><br></br>
-      <Input type='reset' required placeholder='reset' label='reset' name='reset' /><br></br><br></br>
-      <Input type='search' required placeholder='search' label='search' name='search' /><br></br><br></br>
-      <Input type='tel' required placeholder='tel' label='tel' name='tel' /><br></br><br></br>
-      <Input type='url' required placeholder='url' label='url' name='url' /><br></br><br></br>
-      <Input type='week' required placeholder='week' label='week' name='week' /><br></br><br></br>
-
-      <h1>Input with color props</h1>
-      <Input type='text'  color='primary' placeholder='Enter Text..' label='Enter Text' name='text' /><br></br><br></br>
-      <Input type='file' color='secondary' placeholder='Choose File..' label='Choose File' name='file' /><br></br><br></br>
-      <Input type='color' color='error'  label='Choose color' name='color' /><br></br><br></br>
-      <Input type='date' color='info' placeholder='Choose Date..' label='Choose Date' name='date' /><br></br><br></br>
-      <Input type='datetime-local' color='success' placeholder='Enter datetime-local..' label='Enter datetime-local' name='datetime-local' /><br></br><br></br>
-      <Input type='email' color='warning' placeholder='Enter email..' label='Enter email' name='email' /><br></br><br></br>
-      <br></br><br></br>
-
-      <h1>Input with variant filled props</h1>
-      <Input type='text' variant='filled'  color='primary' placeholder='Enter Text..' label='Enter Text' name='text' /><br></br><br></br>
-      <Input type='file' variant='filled' color='secondary' placeholder='Choose File..' label='Choose File' name='file' /><br></br><br></br>
-      <Input type='color' variant='filled' color='error'  label='Choose color' name='color' /><br></br><br></br>
-      <Input type='date' variant='filled' color='info' placeholder='Choose Date..' label='Choose Date' name='date' /><br></br><br></br>
-      <Input type='datetime-local'variant='filled' color='success' placeholder='Enter datetime-local..' label='Enter datetime-local' name='datetime-local' /><br></br><br></br>
-      <Input type='email' variant='filled' color='warning' placeholder='Enter email..' label='Enter email' name='email' /><br></br><br></br>
-      <br></br><br></br>
-
-      <h1>Input with variant standard props</h1>
-      <Input type='text' variant='standard'  color='primary' placeholder='Enter Text..' label='Enter Text' name='text' /><br></br><br></br>
-      <Input type='file' variant='standard' color='secondary' placeholder='Choose File..' label='Choose File' name='file' /><br></br><br></br>
-      <Input type='color' variant='standard' color='error'  label='Choose color' name='color' /><br></br><br></br>
-      <Input type='date' variant='standard' color='info' placeholder='Choose Date..' label='Choose Date' name='date' /><br></br><br></br>
-      <Input type='datetime-local'variant='standard' color='success' placeholder='Enter datetime-local..' label='Enter datetime-local' name='datetime-local' /><br></br><br></br>
-      <Input type='email' variant='standard' color='warning' placeholder='Enter email..' label='Enter email' name='email' /><br></br><br></br>
-      <br></br><br></br>
 
       <h1>Input with multiline props</h1>
       <Input type='text' maxRows='10' multiLine={true} color='primary' placeholder='Enter Text..' label='Enter Text' name='text' /><br></br><br></br>
     
       <br></br><br></br>
       <h1>Normal Modal</h1>
-      <Modal title='Heading'>
-      <h2>Normal Modal</h2>
-      </Modal><br></br>
-
-      <h1>Modal with Buttons</h1>
       <Modal buttons={modalFooterButtons} title='Heading'>
       <h2>Modal with Footer Button</h2>
       </Modal>
