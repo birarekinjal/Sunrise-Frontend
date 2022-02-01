@@ -70,9 +70,13 @@
     "node-sass": "^7.0.1",
     "prettier": "^2.5.1"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "src/*.{ts,tsx}": [
-      "yarn prettier:fix",
       "yarn lint",
       "git add"
     ]
