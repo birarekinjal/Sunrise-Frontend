@@ -1,17 +1,41 @@
 import { Visibility } from '@material-ui/icons';
 import React, { useState } from 'react';
-import { Button, Checkbox, CheckboxDropdown, Input, Modal } from '../../../infrastructure/components';
+import { 
+  Button, 
+  Checkbox, 
+  CheckboxDropdown, 
+  Input, 
+  Modal, 
+  SelectDropdown, 
+  Loader, 
+  Tabs,
+  FullScreenLoader,
+} from '../../../infrastructure/components';
 import Send from '@mui/icons-material/Send';
 import { offerLabel } from '../../../application/constants/svgConstants';
 import { options } from '../../../application/constants/constant';
 
 
 const Layout = () => {
-  const [selectOption, setSelectOption] = useState<string>();
+  const [selectOption, setSelectOption] = useState<string>('');
 
   const handleChange = (selected: any) => {
     setSelectOption(selected);
   };
+
+  const getFormattedDropDownListData = (optionsData:any, label:string, value:any) =>
+    optionsData && optionsData.length > 0
+      ? optionsData.map((item:any) => ({
+        label: item[label],
+        value: item[value],
+      }))
+      : [];
+
+  const dropDownOptions = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' },
+  ];
 
   const modalFooterButtons = [
     {
@@ -32,11 +56,68 @@ const Layout = () => {
     },
   ];
 
+  const HandleToast = () => {
+    return (
+      <h1>ReactJS</h1>
+    );
+  };
+  const Botree = () => {
+    return (
+      <h1>Botree</h1>
+    );
+  };
+
+  const TabsConstant = [
+    {
+      value: '1',
+      label: 'React js',
+      disabled: false,
+      component: <HandleToast />,
+      // icon: <DeleteIcon />,
+      iconPosition: 'start',
+    },
+    {
+      value: '2',
+      label: 'Botree',
+      // icon: <DeleteIcon />,
+      iconPosition: 'end',
+      component: <Botree />,
+    },
+    {
+      value: '3',
+      label: 'Java',
+      disabled: true,
+      component: <HandleToast />,
+    },
+    {
+      value: '4',
+      label: 'Dajngo',
+      component: <Botree />,
+    },
+  ];
+
   return (
     <div>
-      <h1> Button Component </h1>
-
       <>
+      <h1>FullScreenLoader</h1>
+      <FullScreenLoader color='inherit' label='Show Loader' />
+      <h1>Tabs</h1>
+      <Tabs data={TabsConstant} /><br></br><br></br>
+      <h1>Loader</h1>
+      <Loader color='success'/>
+      <Loader color='primary' thickness={1.5}/>
+      <Loader color='secondary' thickness={15} />
+      <br></br><br></br>
+      <h1>Select dropdown</h1>
+      <SelectDropdown 
+      options={getFormattedDropDownListData(dropDownOptions, 'label', 'value')} 
+      onChange={(fData:any) => {
+        setSelectOption(fData?.value);
+      }} 
+      />
+
+     <h1> Button Component </h1>
+
         <h1>Using Color</h1>
 
         <Button
@@ -293,46 +374,6 @@ const Layout = () => {
 
       <h1>Input with type and required props</h1>
       <Input type='text'  required placeholder='Enter Text..' label='Enter Text' name='text' /><br></br><br></br>
-      <Input type='file' required placeholder='Choose File..' label='Choose File' name='file' /><br></br><br></br>
-      <Input type='color' required placeholder='Choose color..' label='Choose color' name='color' /><br></br><br></br>
-      <Input type='date' required placeholder='Choose Date..' label='Choose Date' name='date' /><br></br><br></br>
-      <Input type='datetime-local' required placeholder='Enter datetime-local..' label='Enter datetime-local' name='datetime-local' /><br></br><br></br>
-      <Input type='email' required placeholder='Enter email..' label='Enter email' name='email' /><br></br><br></br>
-      <Input type='number' required placeholder='number' label='number' name='number' /><br></br><br></br>
-      <Input type='password' required placeholder='password' label='password' name='password' /><br></br><br></br>
-      <Input type='range' required placeholder='range' label='range' name='range' /><br></br><br></br>
-      <Input type='reset' required placeholder='reset' label='reset' name='reset' /><br></br><br></br>
-      <Input type='search' required placeholder='search' label='search' name='search' /><br></br><br></br>
-      <Input type='tel' required placeholder='tel' label='tel' name='tel' /><br></br><br></br>
-      <Input type='url' required placeholder='url' label='url' name='url' /><br></br><br></br>
-      <Input type='week' required placeholder='week' label='week' name='week' /><br></br><br></br>
-
-      <h1>Input with color props</h1>
-      <Input type='text'  color='primary' placeholder='Enter Text..' label='Enter Text' name='text' /><br></br><br></br>
-      <Input type='file' color='secondary' placeholder='Choose File..' label='Choose File' name='file' /><br></br><br></br>
-      <Input type='color' color='error'  label='Choose color' name='color' /><br></br><br></br>
-      <Input type='date' color='info' placeholder='Choose Date..' label='Choose Date' name='date' /><br></br><br></br>
-      <Input type='datetime-local' color='success' placeholder='Enter datetime-local..' label='Enter datetime-local' name='datetime-local' /><br></br><br></br>
-      <Input type='email' color='warning' placeholder='Enter email..' label='Enter email' name='email' /><br></br><br></br>
-      <br></br><br></br>
-
-      <h1>Input with variant filled props</h1>
-      <Input type='text' variant='filled'  color='primary' placeholder='Enter Text..' label='Enter Text' name='text' /><br></br><br></br>
-      <Input type='file' variant='filled' color='secondary' placeholder='Choose File..' label='Choose File' name='file' /><br></br><br></br>
-      <Input type='color' variant='filled' color='error'  label='Choose color' name='color' /><br></br><br></br>
-      <Input type='date' variant='filled' color='info' placeholder='Choose Date..' label='Choose Date' name='date' /><br></br><br></br>
-      <Input type='datetime-local'variant='filled' color='success' placeholder='Enter datetime-local..' label='Enter datetime-local' name='datetime-local' /><br></br><br></br>
-      <Input type='email' variant='filled' color='warning' placeholder='Enter email..' label='Enter email' name='email' /><br></br><br></br>
-      <br></br><br></br>
-
-      <h1>Input with variant standard props</h1>
-      <Input type='text' variant='standard'  color='primary' placeholder='Enter Text..' label='Enter Text' name='text' /><br></br><br></br>
-      <Input type='file' variant='standard' color='secondary' placeholder='Choose File..' label='Choose File' name='file' /><br></br><br></br>
-      <Input type='color' variant='standard' color='error'  label='Choose color' name='color' /><br></br><br></br>
-      <Input type='date' variant='standard' color='info' placeholder='Choose Date..' label='Choose Date' name='date' /><br></br><br></br>
-      <Input type='datetime-local'variant='standard' color='success' placeholder='Enter datetime-local..' label='Enter datetime-local' name='datetime-local' /><br></br><br></br>
-      <Input type='email' variant='standard' color='warning' placeholder='Enter email..' label='Enter email' name='email' /><br></br><br></br>
-      <br></br><br></br>
 
       <h1>Input with multiline props</h1>
       <Input type='text' maxRows='10' multiLine={true} color='primary' placeholder='Enter Text..' label='Enter Text' name='text' /><br></br><br></br>
@@ -348,9 +389,6 @@ const Layout = () => {
       <h2>Modal with Footer Button</h2>
       </Modal>
 
-
-
-
         <h1> Check Box</h1>
         <Checkbox color='default' label='default' checked size='small' />
 
@@ -360,6 +398,8 @@ const Layout = () => {
           allowSelectAll={true}
           value={selectOption}
         />
+
+
 
       </>
     </div>

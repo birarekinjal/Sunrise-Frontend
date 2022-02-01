@@ -16,6 +16,8 @@ import DatePicker from './dateTimePicker/datePicker';
 import TimePicker from './dateTimePicker/timePicker';
 import DateTimePicker from './dateTimePicker/dateTime';
 import DateRangePicker from './dateTimePicker/dateRangePicker';
+import Table from './table/table';
+import FullScreenLoader from './fullScreenLoader/fullScreenLoader';
 
 export {
   Button,
@@ -36,4 +38,6 @@ export {
   TimePicker,
   DateTimePicker,
   DateRangePicker,
+  Table,
+  FullScreenLoader,
 };

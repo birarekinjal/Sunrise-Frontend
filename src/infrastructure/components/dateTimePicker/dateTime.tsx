@@ -6,7 +6,7 @@ import DateTimePicker from '@mui/lab/DateTimePicker';
 import { DateTimePickerProps } from './dateTimePickerModal';
 import { Controller } from 'react-hook-form';
 
-const CustomeDateTimePicker: React.FC<DateTimePickerProps> = ({
+const CustomDateTimePicker: React.FC<DateTimePickerProps> = ({
   label,
   className,
   disabled,
@@ -52,4 +52,4 @@ const CustomeDateTimePicker: React.FC<DateTimePickerProps> = ({
   );
 };
 
-export default CustomeDateTimePicker;
+export default CustomDateTimePicker;

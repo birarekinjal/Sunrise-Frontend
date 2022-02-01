@@ -3,24 +3,24 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
-// import TabContext from '@mui/lab/TabContext/TabContext';
-// import TabList from '@mui/lab/TabList/TabList';
-// import TabPanel from '@mui/lab/TabPanel/TabPanel';
+import TabContext from '@mui/lab/TabContext/TabContext';
+import TabList from '@mui/lab/TabList/TabList';
+import TabPanel from '@mui/lab/TabPanel/TabPanel';
 
 type CustomTabsProps = {
   data?: any;
 };
 
 const CustomTabs: React.FC<CustomTabsProps> = ({ data }) => {
-  // const [value, setValue] = React.useState('1');
+  const [value, setValue] = React.useState('1');
 
-  // const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-  //   setValue(newValue);
-  // };
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue);
+  };
 
   return (
     <Box sx={{ width: '100%', typography: 'body1' }}>
-      {/* <TabContext value={value}>
+      <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
             {data &&
@@ -44,7 +44,7 @@ const CustomTabs: React.FC<CustomTabsProps> = ({ data }) => {
               {value.component}
             </TabPanel>
           ))}
-      </TabContext> */}
+      </TabContext>
     </Box>
   );
 };

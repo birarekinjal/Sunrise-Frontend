@@ -8,6 +8,7 @@ const FullScreenLoader: React.FC<FullScreenLoaderProps> = ({
   invisible,
   transitionDuration,
   color,
+  label,
   // sx,
 }) => {
   const [opens, setOpen] = useState(false);
@@ -19,7 +20,7 @@ const FullScreenLoader: React.FC<FullScreenLoaderProps> = ({
   };
   return (
     <div>
-      <Button onClick={handleToggle}>Show backdrop</Button>
+      <Button onClick={handleToggle} label={label}>Show backdrop</Button>
       <Backdrop
         // sx={sx}
         open={opens}

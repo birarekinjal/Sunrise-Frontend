@@ -7,6 +7,7 @@ import {
 import Layout from '../modules/layout/layout';
 import ListTodo from '../modules/todo/listTodo/listTodo';
 import User from '../modules/users/user';
+import DatePickerDemo from '../../presentation/modules/layout/datePickerDemo';
 
 function RoutesData() {
   return (
@@ -15,6 +16,7 @@ function RoutesData() {
         <Route index element={<User />} />
         <Route path="/todo-list" element={<ListTodo />} />
         <Route path="/layout" element={<Layout />} />
+        <Route path="/demo" element={<DatePickerDemo/>} />
       </Routes>
     </BrowserRouter>
   );
