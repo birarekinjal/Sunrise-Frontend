@@ -16,7 +16,7 @@ const CustomTableRow:React.FC<CustomTableRowProps> = ({
   hover,
   selected,
 }) => {
-  console.log('demo');
+  console.log('check eslint');
   return (
     <TableRow 
     classes={classes} 
