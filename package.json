@@ -69,14 +69,19 @@
     "babel-eslint": "^10.1.0",
     "eslint-config-airbnb-typescript": "^16.1.0",
     "husky": "^7.0.4",
-    "lint-staged": "^12.3.1",
+    "lint-staged": "^12.3.2",
     "node-sass": "^7.0.1",
     "prettier": "^2.5.1"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "src/*.{ts,tsx}": [
-      "yarn prettier:fix",
-      "yarn lint"
+      "yarn lint",
+      "git add"
     ]
   }
 }
