@@ -15,20 +15,17 @@ const Layout = () => {
 
   const modalFooterButtons = [
     {
-      label: 'save',
-      className: 'cancel-btn',
-      isLoading: false,
-      isDisabled: false,
-      // onClick: handleClick,
+      label: 'Cancel',
       color: 'primary',
+      variant: 'outlined',
+      className: 'customFilledBtn',
+      // onClick: handleClick,
     },
     {
-      label: 'cancel',
-      className: 'cancel-btn',
-      isLoading: false,
-      isDisabled: false,
+      label: 'Save',
+      color: 'primary',
+      className: 'customFilledBtn',
       // onClick: handleClick,
-      color: 'error',
     },
   ];
 
@@ -300,7 +297,7 @@ const Layout = () => {
       <br></br><br></br>
       <h1>Normal Modal</h1>
       <Modal buttons={modalFooterButtons} title='Heading'>
-      <h2>Modal with Footer Button</h2>
+        <div>Modal with Footer Button</div>
       </Modal>
 
 
