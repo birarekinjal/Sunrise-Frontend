@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import { CustomButtonProps } from './buttonModal';
 import { Loader } from '..';
+import './button.scss';
 
 const CustomButton: React.FC<CustomButtonProps> = ({
   label,
