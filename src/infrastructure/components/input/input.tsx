@@ -2,6 +2,7 @@ import React from 'react';
 import FormControl from '@mui/material/FormControl';
 import { TextField } from '@mui/material';
 import { CustomInputProps } from './inputModal';
+import './input.scss';
 
 const CustomInput: React.FC<CustomInputProps> = ({
   label,
