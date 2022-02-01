@@ -56,7 +56,7 @@ const CustomModal: React.FC<CustomModalProps> = ({
     setOpen(false);
   };
 
-  console.log('check eslint');
+  console.log('check eslint  ');
 
   return (
     <div>
