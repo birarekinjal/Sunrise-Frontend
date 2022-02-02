@@ -3,11 +3,4 @@
 .MuiBackdrop-root{
   background: rgba(0, 0, 0,  .6) !important;
   z-index: 11;
-  .MuiBox-root{
-    span{
-      &.MuiCircularProgress-colorSecondary{
-        color: $color-secondary;
-      }
-    }
-  }
 }
