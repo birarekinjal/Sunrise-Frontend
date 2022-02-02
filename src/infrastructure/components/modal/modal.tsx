@@ -6,8 +6,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import Typography from '@mui/material/Typography';
 import Button from '../button/button';
+import './modal.scss';
 import { CustomModalProps, DialogTitleProps } from './modalModal';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -56,7 +56,6 @@ const CustomModal: React.FC<CustomModalProps> = ({
     setOpen(false);
   };
 
-  console.log('check eslint   ');
 
   return (
     <div>
@@ -75,7 +74,7 @@ const CustomModal: React.FC<CustomModalProps> = ({
           {title}
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <Typography gutterBottom>{children}</Typography>
+          {children}
         </DialogContent>
         <DialogActions>
           {buttons &&
@@ -88,6 +87,8 @@ const CustomModal: React.FC<CustomModalProps> = ({
                   label={btn.label}
                   onClick={btn.onClick}
                   color={btn.color || 'primary'}
+                  variant={btn.variant}
+                  className={btn.className}
                 />
               );
             })}

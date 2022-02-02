@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/eslint-parser": "^7.16.5",
+    "@date-io/dayjs": "^2.13.1",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@hookform/resolvers": "^2.8.5",
@@ -74,9 +75,13 @@
     "node-sass": "^7.0.1",
     "prettier": "^2.5.1"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "src/*.{ts,tsx}": [
-      "yarn prettier:fix",
       "yarn lint",
       "git add"
     ]
