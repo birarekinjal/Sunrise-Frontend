@@ -14,7 +14,7 @@ button{
   &.MuiButton-containedPrimary{
     background: $color-primary;
     &:hover{
-      background: lighten($color-primary, 12%);
+      background: lighten($color-primary, 5%);
     }
   }
 
@@ -39,7 +39,7 @@ button{
   &.MuiButton-containedError{
     background: $color-danger;
     &:hover{
-      background: lighten($color-danger, 3%);
+      background: lighten($color-danger, 5%);
     }
     &:disabled, .disabled{
       background: $color-platinum;
