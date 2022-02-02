@@ -110,7 +110,16 @@ const Layout = () => {
       options={getFormattedDropDownListData(dropDownOptions, 'label', 'value')} 
       onChange={(fData:any) => {
         setSelectOption(fData?.value);
-      }} 
+      }}
+      
+      />
+       <h1>Select dropdown with Multiple</h1>
+      <SelectDropdown 
+      options={getFormattedDropDownListData(dropDownOptions, 'label', 'value')} 
+      onChange={(fData:any) => {
+        setSelectOption(fData?.value);
+      }}
+      isMulti={true}
       />
 
      <h1> Button Component </h1>

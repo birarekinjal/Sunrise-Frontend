@@ -56,7 +56,6 @@ const CustomModal: React.FC<CustomModalProps> = ({
     setOpen(false);
   };
 
-
   return (
     <div>
       <Button
