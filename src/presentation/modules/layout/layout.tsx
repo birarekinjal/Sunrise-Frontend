@@ -97,13 +97,13 @@ const Layout = () => {
     <div>
       <>
       <h1>FullScreenLoader</h1>
-      <FullScreenLoader color='inherit' label='Show Loader' />
+      <FullScreenLoader color='secondary' label='Show Loader' />
       <h1>Tabs</h1>
       <Tabs data={TabsConstant} /><br></br><br></br>
       <h1>Loader</h1>
-      <Loader color='success'/>
-      <Loader color='primary' thickness={1.5}/>
-      <Loader color='secondary' thickness={15} />
+      <Loader color='secondary'/>
+      {/* <Loader color='primary' thickness={1.5}/>
+      <Loader color='secondary' thickness={15} /> */}
       <br></br><br></br>
       <h1>Select dropdown</h1>
       <SelectDropdown 
