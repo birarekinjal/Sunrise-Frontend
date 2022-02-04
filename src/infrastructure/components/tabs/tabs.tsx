@@ -19,9 +19,9 @@ const CustomTabs: React.FC<CustomTabsProps> = ({ data }) => {
   };
 
   return (
-    <Box sx={{ width: '100%', typography: 'body1' }}>
+    <Box>
       <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Box>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
             {data &&
               data.length > 0 &&

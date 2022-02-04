@@ -6,6 +6,7 @@ export type CustomStepperProps = {
   connector?: React.ReactElement;
   nonLinear?: boolean;
   orientation?: 'horizontal' | 'vertical';
-  getSetpContent?: any;
+  getStepContent?: any;
   optionalPageNumber?: number;
+  steps?: any;
 };

@@ -9,19 +9,14 @@ import { CustomStepperProps } from './stepperModal';
 
 
 const CustomStepper: React.FC<CustomStepperProps> = ({
-  getSetpContent,
+  getStepContent,
   optionalPageNumber,
   orientation,
+  steps,
 }) => {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set<number>());
 
-  const steps = [
-    'Basic information',
-    'Contact Information',
-    'Personal Information',
-    'Payment',
-  ];
 
   const isStepOptional = (step: number) => {
     return step === optionalPageNumber;
@@ -48,8 +43,6 @@ const CustomStepper: React.FC<CustomStepperProps> = ({
 
   const handleSkip = () => {
     if (!isStepOptional(activeStep)) {
-      // You probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
       throw new Error("You can't skip a step that isn't optional.");
     }
 
@@ -68,7 +61,7 @@ const CustomStepper: React.FC<CustomStepperProps> = ({
   return (
     <Box sx={{ width: '100%' }}>
       <Stepper activeStep={activeStep} orientation={orientation} nonLinear>
-        {steps.map((label, index) => {
+        {steps.map((label:any, index:any) => {
           const stepProps: { completed?: boolean } = {};
           const labelProps: {
             optional?: React.ReactNode;
@@ -101,7 +94,7 @@ const CustomStepper: React.FC<CustomStepperProps> = ({
       ) : (
         <React.Fragment>
           <Typography sx={{ mt: 2, mb: 1 }}>
-            {getSetpContent(activeStep)}
+            {getStepContent(activeStep)}
           </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
             <Button

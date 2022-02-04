@@ -5,7 +5,6 @@ import DateAdapter from '@mui/lab/AdapterDayjs';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import Box from '@mui/material/Box';
 import { DateTimePickerProps } from './dateTimePickerModal';
-import { Controller } from 'react-hook-form';
 
 const CustomDateRangePicker: React.FC<DateTimePickerProps> = ({
   label,
@@ -27,16 +26,13 @@ const CustomDateRangePicker: React.FC<DateTimePickerProps> = ({
   readOnly,
   startText,
   endText,
-  control,
-  name,
+  value,
+  ref,
+  onChange,
 }) => {
   return (
     <>
       <LocalizationProvider dateAdapter={DateAdapter}>
-        <Controller
-          control={control}
-          name={name}
-          render={({ field: { onChange, value, ref } }) => (
             <DateRangePicker
               startText={startText}
               endText={endText}
@@ -68,8 +64,6 @@ const CustomDateRangePicker: React.FC<DateTimePickerProps> = ({
                 </React.Fragment>
               )}
             />
-          )}
-        />
       </LocalizationProvider>
     </>
   );

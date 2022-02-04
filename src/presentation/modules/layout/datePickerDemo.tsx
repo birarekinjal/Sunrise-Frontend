@@ -1,6 +1,5 @@
 import React from 'react';
-// import {  Table } from '../../../infrastructure/components/index';
-import Table from '../../../infrastructure/components/table/customTable';
+import {  Table } from '../../../infrastructure/components/index';
 // import { useForm } from 'react-hook-form';
 
 const DatePickerDemo = () => {
@@ -16,7 +15,7 @@ const DatePickerDemo = () => {
         <DatePicker label='DatePicker' control={control} name='type' /> 
         <input type='submit' />
       </form> */}
-      <Table />
+      <Table/>
     </>
   );
 };
