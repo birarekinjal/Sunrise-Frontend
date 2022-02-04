@@ -15,7 +15,6 @@ function User() {
     apiParams: '',
     apiCallCondition: true,
   });
-
   return (
     <>
       <ErrorBoundary>

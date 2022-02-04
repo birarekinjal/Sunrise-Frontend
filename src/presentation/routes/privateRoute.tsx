@@ -1,9 +1,19 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
+import AdminLayout from '../layout/adminLayout';
 
-const privateRoute = () => (
-  <div>
-    Private Route
-  </div>
-);
+const PrivateRoute = ({
+  component: Component,
+  loaderCount,
+  isAuthenticated,
+  userRole,
+  ...rest
+}: any) => {
 
-export default privateRoute;
+  return isAuthenticated ? <AdminLayout
+    component={Component}
+    loaderCount={loaderCount}
+    {...rest}
+  /> : <Navigate to="/login" />;
+};
+export default PrivateRoute;

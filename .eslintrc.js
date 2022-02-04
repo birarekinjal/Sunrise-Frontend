@@ -1,7 +1,7 @@
 module.exports = {
   extends: ["airbnb-typescript"],
   parser: '@typescript-eslint/parser',
-  plugins: ['react', "import", '@typescript-eslint'],
+  plugins: ['react', "import", '@typescript-eslint',],
   parserOptions: {
     "requireConfigFile": false,
     "ecmaVersion": 6,
@@ -84,6 +84,5 @@ module.exports = {
         "format": ["camelCase", "UPPER_CASE"]
       }
     ]
-
   },
 };

@@ -1,0 +1,60 @@
+Permission 
+1) user Management 
+    create, update , delete 
+
+2) price management
+    create , delete , approve, unapprove
+
+
+Role 
+1) admin - 1,2
+2) Employee - 1,2
+3) price- 2
+4) kyc - 1
+
+
+User Management 
+
+ User Add -  assign role - 1  (admin)
+      second users - assign role - 3 (price)
+
+
+Context API - Role -pass
+
+
+
+Route 
+1) Public Route
+2) Private Route - 
+      Authentication 
+  
+pages
+
+addUser - 
+updateUsers 
+
+
+map 
+
+login - API - call 
+
+Role : [ 'Employe' ,'admin' , 'price', 'kyc' ]
+
+
+
+
+
+
+<UserManagement >
+
+
+
+FeildArray - ['Name' , 'Age']
+SubmitMethod - 
+
+
+
+
+
+
+
