@@ -60,7 +60,7 @@ const CustomStepper: React.FC<CustomStepperProps> = ({
 
   return (
     <Box sx={{ width: '100%' }}>
-      <Stepper activeStep={activeStep} orientation={orientation} nonLinear>
+      <Stepper activeStep={activeStep} orientation={orientation}>
         {steps.map((label:any, index:any) => {
           const stepProps: { completed?: boolean } = {};
           const labelProps: {
