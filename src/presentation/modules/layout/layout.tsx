@@ -11,6 +11,9 @@ import {
   Tabs,
   FullScreenLoader,
   Stepper,
+  DatePicker,
+  TimePicker,
+  DateTimePicker,
 } from '../../../infrastructure/components';
 import Send from '@mui/icons-material/Send';
 import { offerLabel } from '../../../application/constants/svgConstants';
@@ -20,6 +23,9 @@ import { options } from '../../../application/constants/constant';
 const Layout = () => {
   const [selectOption, setSelectOption] = useState<string>('');
   const [open, setOpen] = useState(false);
+  const [date, setDate] = useState();
+  const [time, setTime] = useState();
+  const [dateTime, setDateTime] = useState();
 
   const handleChange = (selected: any) => {
     setSelectOption(selected);
@@ -128,9 +134,25 @@ const Layout = () => {
     'Payment',
   ];
 
+
   return (
     <div>
       <>
+      <h1>DateTimePicker</h1>
+      <DateTimePicker
+      value={dateTime}
+      onChange={(e:any) => setDateTime(e)}
+      />
+      <h1>TimePicker</h1>
+      <TimePicker 
+      value={time}
+      onChange={(e:any) => setTime(e)}
+      />
+      <h1>DatePicker</h1>
+      <DatePicker 
+      value={date}
+      onChange={(e:any) => setDate(e)}
+      />
       <h1>Stepper Form</h1><br></br>
       <Stepper 
       getStepContent={getStepContents} 
