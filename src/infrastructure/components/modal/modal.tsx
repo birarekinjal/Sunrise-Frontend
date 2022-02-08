@@ -5,6 +5,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 // import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import Fab from '@mui/material/Fab';
 import Button from '../button/button';
 import './modal.scss';
 import { CustomModalProps } from './modalModal';
@@ -21,7 +22,9 @@ const CustomModal: React.FC<CustomModalProps> = ({
    <Dialog onClose={toggleModal} open={isModalVisible} >
      <DialogTitle>
       {title}
-      <CloseIcon onClick={toggleModal} />
+      <Fab size="small" color="inherit" aria-label="add" onClick={toggleModal}>
+        <CloseIcon />
+      </Fab>
      </DialogTitle>
      <DialogContent>
         {children}
