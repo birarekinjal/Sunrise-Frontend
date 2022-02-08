@@ -6,6 +6,7 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext/TabContext';
 import TabList from '@mui/lab/TabList/TabList';
 import TabPanel from '@mui/lab/TabPanel/TabPanel';
+import './tabs.scss';
 
 type CustomTabsProps = {
   data?: any;
