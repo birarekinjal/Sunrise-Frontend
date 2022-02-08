@@ -4,6 +4,7 @@ import DateAdapter from '@mui/lab/AdapterDayjs';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
 import { DateTimePickerProps } from './dateTimePickerModal';
+import './datePickerUI.scss';
 
 const CustomDatePicker: React.FC<DateTimePickerProps> = ({
   className,
