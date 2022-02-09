@@ -5,6 +5,7 @@ import DateAdapter from '@mui/lab/AdapterDayjs';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import Box from '@mui/material/Box';
 import { DateTimePickerProps } from './dateTimePickerModal';
+import './datePickerUI.scss';
 
 const CustomDateRangePicker: React.FC<DateTimePickerProps> = ({
   label,
