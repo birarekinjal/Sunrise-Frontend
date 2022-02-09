@@ -14,6 +14,7 @@ import {
   DatePicker,
   TimePicker,
   DateTimePicker,
+  Switch,
 } from '../../../infrastructure/components';
 import Send from '@mui/icons-material/Send';
 import { offerLabel } from '../../../application/constants/svgConstants';
@@ -31,19 +32,7 @@ const Layout = () => {
     setSelectOption(selected);
   };
 
-  const getFormattedDropDownListData = (optionsData:any, label:string, value:any) =>
-    optionsData && optionsData.length > 0
-      ? optionsData.map((item:any) => ({
-        label: item[label],
-        value: item[value],
-      }))
-      : [];
 
-  const dropDownOptions = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
-  ];
 
   const modalFooterButtons = [
     {
@@ -106,6 +95,19 @@ const Layout = () => {
     },
   ];
 
+  const names = [
+    'Oliver Hansen',
+    'Van Henry',
+    'April Tucker',
+    'Ralph Hubbard',
+    'Omar Alexander',
+    'Carlos Abbott',
+    'Miriam Wagner',
+    'Bradley Wilkerson',
+    'Virginia Andrews',
+    'Kelly Snyder',
+  ];
+
   const handleModalOpen = () => {
     setOpen(true);
   };
@@ -134,10 +136,16 @@ const Layout = () => {
     'Payment',
   ];
 
+  const handleSwitch = (e:any) => {
+    alert(e.target.checked);
+  };
+
 
   return (
     <div>
       <>
+      <h1>Switch</h1>
+      <Switch color='secondary'  onChange={(e:any) =>handleSwitch(e)} />
       <h1>DateTimePicker</h1>
       <DateTimePicker
       value={dateTime}
@@ -188,18 +196,10 @@ const Layout = () => {
       <br></br><br></br>
       <h1>Select dropdown</h1>
       <SelectDropdown 
-      options={getFormattedDropDownListData(dropDownOptions, 'label', 'value')} 
-      onChange={(fData:any) => {
-        setSelectOption(fData?.value);
-      }}   
-      />
-       <h1>Select dropdown with Multiple</h1>
-      <SelectDropdown 
-      options={getFormattedDropDownListData(dropDownOptions, 'label', 'value')} 
-      onChange={(fData:any) => {
-        setSelectOption(fData?.value);
-      }}
-      isMulti={true}
+          names={names}
+          label="select all" 
+          isCheckbox={true}    
+          isMultiple={true}  
       />
 
      <h1> Button Component </h1>
