@@ -1,8 +1,8 @@
 import React from 'react';
 // import {  Table } from '../../../infrastructure/components/index';
-import Table from '../../../infrastructure/components/table/customTable';
 // import { useForm } from 'react-hook-form';
-
+import Table from '../../../infrastructure/components/table/customTable';
+// import TableCell from '@mui/material/TableCell';
 const DatePickerDemo = () => {
   // const { handleSubmit, control } = useForm();
 
@@ -17,6 +17,7 @@ const DatePickerDemo = () => {
         <input type='submit' />
       </form> */}
       <Table />
+  
     </>
   );
 };

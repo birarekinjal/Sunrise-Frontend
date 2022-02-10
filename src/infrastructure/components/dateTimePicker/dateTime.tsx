@@ -4,7 +4,7 @@ import DateAdapter from '@mui/lab/AdapterDayjs';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
 import { DateTimePickerProps } from './dateTimePickerModal';
-import { Controller } from 'react-hook-form';
+import './datePickerUI.scss';
 
 const CustomDateTimePicker: React.FC<DateTimePickerProps> = ({
   label,
@@ -19,15 +19,13 @@ const CustomDateTimePicker: React.FC<DateTimePickerProps> = ({
   orientation,
   readOnly,
   views,
-  control,
-  name,
+  value,
+  ref,
+  onChange,
 }) => {
   return (
     <LocalizationProvider dateAdapter={DateAdapter}>
-      <Controller
-        control={control}
-        name={name}
-        render={({ field: { onChange, value, ref } }) => (
+   
           <DateTimePicker
             renderInput={(props) => <TextField {...props} />}
             label={label}
@@ -46,8 +44,6 @@ const CustomDateTimePicker: React.FC<DateTimePickerProps> = ({
             readOnly={readOnly}
             views={views}
           />
-        )}
-      />
     </LocalizationProvider>
   );
 };

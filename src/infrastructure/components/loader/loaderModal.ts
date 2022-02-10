@@ -7,11 +7,11 @@ export type CustomLoaderProps = {
   value?: number;
   variant?: 'determinate' | 'indeterminate';
   color?:
-    | 'inherit'
-    | 'primary'
-    | 'secondary'
-    | 'error'
-    | 'info'
-    | 'success'
-    | 'warning';
+  | 'inherit'
+  | 'primary'
+  | 'secondary'
+  | 'error'
+  | 'info'
+  | 'success'
+  | 'warning';
 };

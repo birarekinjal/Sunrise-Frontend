@@ -6,6 +6,7 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext/TabContext';
 import TabList from '@mui/lab/TabList/TabList';
 import TabPanel from '@mui/lab/TabPanel/TabPanel';
+import './tabs.scss';
 
 type CustomTabsProps = {
   data?: any;
@@ -19,9 +20,9 @@ const CustomTabs: React.FC<CustomTabsProps> = ({ data }) => {
   };
 
   return (
-    <Box sx={{ width: '100%', typography: 'body1' }}>
+    <Box>
       <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Box>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
             {data &&
               data.length > 0 &&

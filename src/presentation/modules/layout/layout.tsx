@@ -10,6 +10,11 @@ import {
   Loader, 
   Tabs,
   FullScreenLoader,
+  Stepper,
+  DatePicker,
+  TimePicker,
+  DateTimePicker,
+  Switch,
 } from '../../../infrastructure/components';
 import Send from '@mui/icons-material/Send';
 import { offerLabel } from '../../../application/constants/svgConstants';
@@ -18,24 +23,16 @@ import { options } from '../../../application/constants/constant';
 
 const Layout = () => {
   const [selectOption, setSelectOption] = useState<string>('');
+  const [open, setOpen] = useState(false);
+  const [date, setDate] = useState();
+  const [time, setTime] = useState();
+  const [dateTime, setDateTime] = useState();
 
   const handleChange = (selected: any) => {
     setSelectOption(selected);
   };
 
-  const getFormattedDropDownListData = (optionsData:any, label:string, value:any) =>
-    optionsData && optionsData.length > 0
-      ? optionsData.map((item:any) => ({
-        label: item[label],
-        value: item[value],
-      }))
-      : [];
 
-  const dropDownOptions = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
-  ];
 
   const modalFooterButtons = [
     {
@@ -49,9 +46,11 @@ const Layout = () => {
       label: 'Save',
       color: 'primary',
       className: 'customFilledBtn',
-      // onClick: handleClick,
+      variant: 'contained',
+      // onClick: () => handleClick(),
     },
   ];
+
 
   const HandleToast = () => {
     return (
@@ -60,7 +59,10 @@ const Layout = () => {
   };
   const Botree = () => {
     return (
+      <>
       <h1>Botree</h1>
+      <Button type='button' label='submit' />
+      </>
     );
   };
 
@@ -93,9 +95,96 @@ const Layout = () => {
     },
   ];
 
+  const names = [
+    'Oliver Hansen',
+    'Van Henry',
+    'April Tucker',
+    'Ralph Hubbard',
+    'Omar Alexander',
+    'Carlos Abbott',
+    'Miriam Wagner',
+    'Bradley Wilkerson',
+    'Virginia Andrews',
+    'Kelly Snyder',
+  ];
+
+  const handleModalOpen = () => {
+    setOpen(true);
+  };
+  
+  const handleModalClose = () => {
+    setOpen(!open);
+  };
+
+  const getStepContents = (step:any) => {
+    switch (step) {
+      case 0:
+        return <Botree />;
+      case 1:
+        return 'do step 2';
+      case 2:
+        return 'do step 3';
+      default:
+        return 'unknown step';
+    }
+  };
+
+  const steps = [
+    'Basic information',
+    'Contact Information',
+    'Personal Information',
+    'Payment',
+  ];
+
+  const handleSwitch = (e:any) => {
+    alert(e.target.checked);
+  };
+
+
   return (
     <div>
       <>
+      <h1>Switch</h1>
+      <Switch color='secondary'  onChange={(e:any) =>handleSwitch(e)} />
+      <h1>DateTimePicker</h1>
+      <DateTimePicker
+      value={dateTime}
+      onChange={(e:any) => setDateTime(e)}
+      />
+      <h1>TimePicker</h1>
+      <TimePicker 
+      value={time}
+      onChange={(e:any) => setTime(e)}
+      />
+      <h1>DatePicker</h1>
+      <DatePicker 
+      value={date}
+      onChange={(e:any) => setDate(e)}
+      />
+      <h1>Stepper Form</h1><br></br>
+      <Stepper 
+      getStepContent={getStepContents} 
+      steps={steps}
+      activeStep={1}
+      optionalPageNumber={2}
+      /><br></br>
+
+      <h1>Normal Modal</h1>
+      {
+        open && (
+          <Modal 
+          buttons={modalFooterButtons} 
+          title='Heading Title' 
+          isModalVisible={open} 
+          toggleModal={handleModalClose}>
+        <div>Modal with Footer Button</div>
+      </Modal>
+        )
+      }
+
+
+      <Button type='button' label='Open Modal' onClick={() => handleModalOpen()}  />
+
       <h1>FullScreenLoader</h1>
       <FullScreenLoader color='secondary' label='Show Loader' />
       <h1>Tabs</h1>
@@ -107,25 +196,15 @@ const Layout = () => {
       <br></br><br></br>
       <h1>Select dropdown</h1>
       <SelectDropdown 
-      options={getFormattedDropDownListData(dropDownOptions, 'label', 'value')} 
-      onChange={(fData:any) => {
-        setSelectOption(fData?.value);
-      }}
-      
-      />
-       <h1>Select dropdown with Multiple</h1>
-      <SelectDropdown 
-      options={getFormattedDropDownListData(dropDownOptions, 'label', 'value')} 
-      onChange={(fData:any) => {
-        setSelectOption(fData?.value);
-      }}
-      isMulti={true}
+          names={names}
+          label="select all" 
+          isCheckbox={true}    
+          isMultiple={true}  
       />
 
      <h1> Button Component </h1>
 
         <h1>Using Color</h1>
-
         <Button
           label="inherit"
           color="inherit"
@@ -385,11 +464,7 @@ const Layout = () => {
       <Input type='text' maxRows='10' multiLine={true} color='primary' placeholder='Enter Text..' label='Enter Text' name='text' /><br></br><br></br>
     
       <br></br><br></br>
-      <h1>Normal Modal</h1>
-      <Modal buttons={modalFooterButtons} title='Heading'>
-        <div>Modal with Footer Button</div>
-      </Modal>
-
+    
         <h1> Check Box</h1>
         <Checkbox color='default' label='default' checked size='small' />
 
@@ -399,9 +474,6 @@ const Layout = () => {
           allowSelectAll={true}
           value={selectOption}
         />
-
-
-
       </>
     </div>
   );
