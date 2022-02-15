@@ -9,9 +9,9 @@ import LastPageIcon from '@mui/icons-material/LastPage';
 import { TablePaginationActionsProps } from './tableProps';
 
 
-const TablePaginationActions = (props: TablePaginationActionsProps) => {
+const TablePaginationActions = ({ count, page, rowsPerPage, onPageChange }: TablePaginationActionsProps) => {
   const theme = useTheme();
-  const { count, page, rowsPerPage, onPageChange } = props;
+
 
   const handleFirstPageButtonClick = (
     event: React.MouseEvent<HTMLButtonElement>,

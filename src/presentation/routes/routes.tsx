@@ -17,6 +17,7 @@ function RoutesData() {
         <Route path="/todo-list" element={<ListTodo />} />
         <Route path="/layout" element={<Layout />} />
         <Route path="/demo" element={<DatePickerDemo/>} />
+        <Route path="/user" element={<User/>} />
       </Routes>
     </BrowserRouter>
   );

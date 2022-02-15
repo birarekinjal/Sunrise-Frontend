@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { 
   Button, 
   Checkbox, 
-  CheckboxDropdown, 
   Input, 
   Modal, 
   SelectDropdown, 
@@ -15,24 +14,27 @@ import {
   TimePicker,
   DateTimePicker,
   Switch,
+  DataNotFound,
+  FileUpload,
+  NumberCount,
 } from '../../../infrastructure/components';
 import Send from '@mui/icons-material/Send';
 import { offerLabel } from '../../../application/constants/svgConstants';
-import { options } from '../../../application/constants/constant';
+// import { options } from '../../../application/constants/constant';
 
 
 const Layout = () => {
-  const [selectOption, setSelectOption] = useState<string>('');
+
   const [open, setOpen] = useState(false);
   const [date, setDate] = useState();
   const [time, setTime] = useState();
   const [dateTime, setDateTime] = useState();
 
-  const handleChange = (selected: any) => {
-    setSelectOption(selected);
-  };
+ 
 
 
+
+ 
 
   const modalFooterButtons = [
     {
@@ -141,11 +143,18 @@ const Layout = () => {
   };
 
 
+
   return (
     <div>
       <>
+      <NumberCount 
+ 
+      />
+      <h1>Upload Doc</h1>
+      <FileUpload accept={'image/*'} />
+      <DataNotFound errorMessage='No Data Found' />
       <h1>Switch</h1>
-      <Switch color='secondary'  onChange={(e:any) =>handleSwitch(e)} />
+      <Switch color='secondary' onChange={(e:any) =>handleSwitch(e)} />
       <h1>DateTimePicker</h1>
       <DateTimePicker
       value={dateTime}
@@ -467,13 +476,6 @@ const Layout = () => {
     
         <h1> Check Box</h1>
         <Checkbox color='default' label='default' checked size='small' />
-
-        <CheckboxDropdown
-          options={options}
-          onChange={handleChange}
-          allowSelectAll={true}
-          value={selectOption}
-        />
       </>
     </div>
   );

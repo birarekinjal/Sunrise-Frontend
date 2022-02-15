@@ -1,8 +1,12 @@
-const axios = require('axios');
+import { get } from '../../apis/client';
+// const axios = require('axios');
 
-export class UserService {
+class UserService {
   public async getUsers(): Promise<any> {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+    const response = await get('/users');    
     return response;
   }
 }
+
+
+export { UserService };

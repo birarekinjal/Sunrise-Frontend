@@ -11,7 +11,6 @@ import Toaster from './toast/toaster';
 import ToolTip from './toolTip/toolTip';
 import Tabs from './tabs/tabs';
 import Stepper from './stepper/stepper';
-import CheckboxDropdown from './checkboxDropdown/checkboxDropdown';
 import DatePicker from './dateTimePicker/datePicker';
 import TimePicker from './dateTimePicker/timePicker';
 import DateTimePicker from './dateTimePicker/dateTime';
@@ -19,6 +18,9 @@ import DateRangePicker from './dateTimePicker/dateRangePicker';
 import Table from './table/table';
 import FullScreenLoader from './fullScreenLoader/fullScreenLoader';
 import Switch from './switch/customSwitch';
+import DataNotFound from './dataNotFound/dataNotFound';
+import FileUpload from './fileUpload/uploadFile';
+import NumberCount from './number/numberCount';
 
 export {
   Button,
@@ -34,7 +36,6 @@ export {
   ToolTip,
   Tabs,
   Stepper,
-  CheckboxDropdown,
   DatePicker,
   TimePicker,
   DateTimePicker,
@@ -42,4 +43,7 @@ export {
   Table,
   FullScreenLoader,
   Switch,
+  DataNotFound,
+  FileUpload,
+  NumberCount,
 };
