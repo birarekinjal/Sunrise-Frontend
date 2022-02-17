@@ -26,6 +26,7 @@ export type DateTimePickerProps = {
   name?: any;
   onBlur?: any;
   ref?: any;
+  selected?: any;
 
   // date Range picker
 
@@ -39,4 +40,5 @@ export type DateTimePickerProps = {
   // time picker
   timeOpenTo?: 'hours' | 'minutes' | 'seconds';
   timeViews?: Array<'hours' | 'minutes' | 'seconds'>;
+  
 };

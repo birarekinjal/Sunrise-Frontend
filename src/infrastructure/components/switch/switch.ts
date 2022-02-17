@@ -14,4 +14,6 @@ export type CustomSwitchProps = {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
   value?: any
+  name?: any
+  inputRef?: React.Ref<any> | undefined;
 };

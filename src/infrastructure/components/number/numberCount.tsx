@@ -3,13 +3,24 @@ import { Input, Button } from '../index';
 
 type NumberCountProps = {
   // handleIncrement?: any;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  // onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   // handleDecrement?: any;
   count?: Number;
   // handleChange?: any;
+  placeholder?: string;
+  label?: string;
+  variant?: any;
+  registeredEvents?: any;
+  name?: string;
 };
 
-const NumberCount:React.FC<NumberCountProps> = () => {
+const NumberCount:React.FC<NumberCountProps> = ({ 
+  registeredEvents,
+  placeholder,
+  variant,
+  label,
+  name, 
+}) => {
 
   const [count, setCount] = useState<number>(0);
 
@@ -28,7 +39,16 @@ const NumberCount:React.FC<NumberCountProps> = () => {
   return (
     <>
     <Button label='+' onClick={handleIncrement}/>
-    <Input type='input' value={count} onChange={(e)=>handleChange(e)}/>
+    <Input 
+    type='input' 
+    value={count} 
+    onChange={(e)=>handleChange(e)} 
+    registeredEvents={registeredEvents}
+    variant={variant}
+    placeholder={placeholder}
+    label={label}
+    name={name}
+    />
     <Button label='-' onClick={handleDecrement}/>
     </>
   );

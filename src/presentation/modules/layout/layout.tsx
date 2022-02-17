@@ -16,11 +16,11 @@ import {
   Switch,
   DataNotFound,
   FileUpload,
-  NumberCount,
 } from '../../../infrastructure/components';
 import Send from '@mui/icons-material/Send';
 import { offerLabel } from '../../../application/constants/svgConstants';
 // import { options } from '../../../application/constants/constant';
+import AddForm from './addForm';
 
 
 const Layout = () => {
@@ -30,10 +30,8 @@ const Layout = () => {
   const [time, setTime] = useState();
   const [dateTime, setDateTime] = useState();
 
+  
  
-
-
-
  
 
   const modalFooterButtons = [
@@ -71,9 +69,9 @@ const Layout = () => {
   const TabsConstant = [
     {
       value: '1',
-      label: 'React js',
+      label: 'Form',
       disabled: false,
-      component: <HandleToast />,
+      component:  <AddForm />,
       // icon: <DeleteIcon />,
       iconPosition: 'start',
     },
@@ -147,9 +145,11 @@ const Layout = () => {
   return (
     <div>
       <>
-      <NumberCount 
- 
-      />
+
+      <h1>Tabs</h1>
+      <Tabs data={TabsConstant} /><br></br><br></br>
+     
+      
       <h1>Upload Doc</h1>
       <FileUpload accept={'image/*'} />
       <DataNotFound errorMessage='No Data Found' />
@@ -196,8 +196,6 @@ const Layout = () => {
 
       <h1>FullScreenLoader</h1>
       <FullScreenLoader color='secondary' label='Show Loader' />
-      <h1>Tabs</h1>
-      <Tabs data={TabsConstant} /><br></br><br></br>
       <h1>Loader</h1>
       <Loader color='secondary'/>
       {/* <Loader color='primary' thickness={1.5}/>

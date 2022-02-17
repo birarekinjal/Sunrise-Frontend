@@ -1,7 +1,6 @@
 import React from 'react';
 import { Checkbox } from '@mui/material';
 import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import { CheckboxProps } from './checkboxModal';
 import './checkbox.scss';
 
@@ -24,8 +23,7 @@ const CustomCheckBox: React.FC<CheckboxProps> = ({
     <>
       <FormGroup>
         {isControlled ? (
-          <FormControlLabel
-            control={
+            <>
               <Checkbox
                 size={size}
                 color={color}
@@ -38,12 +36,11 @@ const CustomCheckBox: React.FC<CheckboxProps> = ({
                 value={value}
                 onChange={onChange}
               />
-            }
-            label={label}
-          />
+          {label}
+            </>
+          
         ) : (
-          <FormControlLabel
-            control={
+          <>
               <Checkbox
                 {...(registeredEvents || {})}
                 size={size}
@@ -56,9 +53,8 @@ const CustomCheckBox: React.FC<CheckboxProps> = ({
                 value={value}
                 onChange={onChange}
               />
-            }
-            label={label}
-          />
+            {label}
+            </>
         )}
       </FormGroup>
     </>

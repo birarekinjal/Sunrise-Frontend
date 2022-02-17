@@ -4,6 +4,8 @@ import DateAdapter from '@mui/lab/AdapterDayjs';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
 import { DateTimePickerProps } from './dateTimePickerModal';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import './datePickerUI.scss';
 
 const CustomDatePicker: React.FC<DateTimePickerProps> = ({
@@ -27,7 +29,10 @@ const CustomDatePicker: React.FC<DateTimePickerProps> = ({
   onChange,
 }) => {
   return (
+    <FormGroup>
     <LocalizationProvider dateAdapter={DateAdapter}>
+      <FormControlLabel 
+          control={
           <DatePicker
             label={label}
             value={value}
@@ -47,9 +52,9 @@ const CustomDatePicker: React.FC<DateTimePickerProps> = ({
             reduceAnimations={reduceAnimations}
             onChange={onChange}
             ref={ref}
-            renderInput={(params) => <TextField {...params} />}
-          />
+            renderInput={(params) => <TextField {...params} />} />} label={''}      />
     </LocalizationProvider>
+    </FormGroup>
   );
 };
 

@@ -14,19 +14,23 @@ const CustomSwitch: React.FC<CustomSwitchProps> = ({
   onChange,
   required,
   value,
+  name,
+  inputRef,
 }) => {
   return (
     <>
     <Switch 
-    {...label}  
-    defaultChecked={defaultChecked}
-    disabled={disabled}
-    edge={edge}
-    onChange={onChange}
-    required={required}
-    value={value}
-    color={color}
-    checked={checked}
+        {...label}  
+        name={name}
+        inputRef={inputRef}
+        defaultChecked={defaultChecked}
+        disabled={disabled}
+        edge={edge}
+        onChange={onChange}
+        required={required}
+        value={value}
+        color={color}
+        checked={checked}
     />
     </>
   );
