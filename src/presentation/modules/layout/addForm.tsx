@@ -9,10 +9,34 @@ import {
   DateTimePicker,
   Switch,
   Checkbox,
+  SelectDropdown,
+  // SelectDropdown,
 } from '../../../infrastructure/components';
+// import OutlinedInput from '@mui/material/OutlinedInput';
+// import InputLabel from '@mui/material/InputLabel';
+// import MenuItem from '@mui/material/MenuItem';
+// import FormControl from '@mui/material/FormControl';
+// import ListItemText from '@mui/material/ListItemText';
+// import Select from '@mui/material/Select';
+// import Checkbox from '@mui/material/Checkbox';
+
 
 
 const AddForm = () => {
+
+
+  const names = [
+    'Oliver Hansen',
+    'Van Henry',
+    'April Tucker',
+    'Ralph Hubbard',
+    'Omar Alexander',
+    'Carlos Abbott',
+    'Miriam Wagner',
+    'Bradley Wilkerson',
+    'Virginia Andrews',
+    'Kelly Snyder',
+  ];
 
   const {
     register,
@@ -32,12 +56,12 @@ const AddForm = () => {
       dateTime:'',
       checkSwitch:'',
       checkbox:'',
+      selectMenu:'',
     },
     // resolver: yupResolver(schema),
   });
 
   const onSubmit = () => {
-
     reset();
   };
 
@@ -65,7 +89,7 @@ const AddForm = () => {
           label="Password"
           variant="outlined"
           registeredEvents={register('password')}
-          name="password"
+          name="password"             
           type="password"
           error={errors.password?.message}
           showError={true}
@@ -145,6 +169,77 @@ const AddForm = () => {
       /> <br></br><br></br>
 
 
+          {/* <Controller 
+              name='selectMenu'
+                control={control}
+                render={({ field }) => (
+                    <Select
+                    value={field.value} 
+                    onChange={field.onChange}
+                    >
+                    { 
+                        names.map((name) => (
+                        <MenuItem key={name} value={name}>
+                        <ListItemText primary={name} />
+                        </MenuItem>
+
+                        ))}
+                    </Select>   
+                )
+            }
+          /> */}
+
+
+        <Controller 
+              name='selectMenu'
+                control={control}
+                render={({ field }) => (
+                    <SelectDropdown
+                      value={field.value} 
+                      onChange={field.onChange}
+                      names={names}
+                      label='Select'
+                    />
+                    
+                )
+            }
+          />
+
+{/* 
+      <FormControl sx={{ m: 1, width: 300 }}>
+        <InputLabel id="demo-multiple-checkbox-label">Tag</InputLabel>
+            <Controller 
+             name='selectMenu'
+              control={control}
+              render={({ field }) => (
+                <Select
+          labelId="demo-multiple-checkbox-label"
+          id="demo-multiple-checkbox"
+          multiple
+          value={field.value}
+          onChange={field.onChange}
+          input={<OutlinedInput label="Tag" />}
+          renderValue={(selected) => selected.join(', ')}
+          MenuProps={MenuProps}
+        >
+          {names.map((name) => (
+            <MenuItem key={name} value={name}>
+              <Checkbox checked={personName.indexOf(name) > -1} />
+              <ListItemText primary={name} />
+            </MenuItem>
+          ))}
+        </Select>
+          
+              )
+          }
+          />
+      </FormControl> */}
+
+
+
+
+     
+   
 
         <Button type="button" label="submit" onClick={handleSubmit(onSubmit)} />
       </form>

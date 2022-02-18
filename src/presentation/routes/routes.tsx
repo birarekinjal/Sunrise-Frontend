@@ -9,7 +9,8 @@ import ListTodo from '../modules/todo/listTodo/listTodo';
 import User from '../modules/users/user';
 import DatePickerDemo from '../../presentation/modules/layout/datePickerDemo';
 import { Login } from '../modules/login/index';
-import { Dashboard } from '../modules/Dashboard/index';
+import { Dashboard } from '../modules/dashboard/index';
+import { AddEmployee } from '../modules/addUser/index';
 
 function RoutesData() {
   return (
@@ -22,6 +23,7 @@ function RoutesData() {
         <Route path="/user" element={<User/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/addEmployee" element={<AddEmployee />} />
       </Routes>
     </BrowserRouter>
   );

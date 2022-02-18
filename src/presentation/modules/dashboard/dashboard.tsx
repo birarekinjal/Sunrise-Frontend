@@ -14,7 +14,12 @@ const Dashboard = () => {
 
   return (
     <>
-    <Table isCheckbox rows={rows} handleSelect={handleSelect} handleSelectAllData={handleSelectAllData}/>
+    <Table 
+    isCheckbox 
+    rows={rows} 
+    handleSelect={handleSelect} 
+    handleSelectAllData={handleSelectAllData}
+    />
     </>
   );
 };

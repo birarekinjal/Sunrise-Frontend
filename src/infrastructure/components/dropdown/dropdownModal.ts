@@ -23,4 +23,8 @@ export type SelectDropdownProps = {
   label?: string;
   isCheckbox?: boolean;
   isMultiple?: boolean;
+  value?: any;
+  onChange?: any;
+  children?: any;
+  renderValue?: any;
 };
