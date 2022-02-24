@@ -5,7 +5,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import schema from '../../modules/forgotPassword/schema/forgotPasswordSchema';
 import { constants } from '../../../application/constants/constant';
 
-const ForgotPasswordForm = () => {
+const ForgotPasswordForm = (props: any) => {
+  const { handleOnSubmit } = props;
   const [otp, setOtp] = useState('');
 
   const {
@@ -28,12 +29,6 @@ const ForgotPasswordForm = () => {
 
   const handleChange = (id: any) => {
     setOtp(id);
-  };
-
-  const onSubmit = () => {
-    //  add parameter and check output
-    // console.log('data', data);
-    // reset();
   };
 
   return (
@@ -72,7 +67,7 @@ const ForgotPasswordForm = () => {
           type='button'
           label='submit'
           color='primary'
-          onClick={handleSubmit(onSubmit)}
+          onClick={handleSubmit(handleOnSubmit)}
         />
       </form>
     </div>

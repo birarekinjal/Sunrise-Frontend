@@ -5,7 +5,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { constants } from '../../../application/constants/constant';
 import schema from './schema/resetPassword';
 
-const ResetPassword = () => {
+const ResetPasswordForm = (props: any) => {
+  const { handleOnSubmit } = props;
   const {
     register,
     handleSubmit,
@@ -32,14 +33,12 @@ const ResetPassword = () => {
     backToLogin,
   } = constants.resetPassword;
 
-  const onSubmit = () => {};
-
   return (
     <div>
       <form>
         <p>
           <a href='/login' id='link' rel='nofollow'>
-           {backToLogin}
+            {backToLogin}
           </a>
         </p>
         {/* Email */}
@@ -77,11 +76,11 @@ const ResetPassword = () => {
           type='button'
           label='submit'
           color='primary'
-          onClick={handleSubmit(onSubmit)}
+          onClick={handleSubmit(handleOnSubmit)}
         />
       </form>
     </div>
   );
 };
 
-export default ResetPassword;
+export default ResetPasswordForm;

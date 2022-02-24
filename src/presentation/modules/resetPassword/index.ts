@@ -1,3 +1,3 @@
-import ResetPassword from './resetPasswordForm';
+import ResetPasswordForm from './resetPasswordForm';
 
-export { ResetPassword };
+export { ResetPasswordForm };

@@ -14,13 +14,14 @@ import {
 import { yupResolver } from '@hookform/resolvers/yup';
 import { constants } from '../../../application/constants/constant';
 
-const AddEmployee = () => {
+const AddEmployeeForm = (props: any) => {
+  const { handleOnSubmit } = props;
   const {
     register,
     handleSubmit,
     formState: { errors },
     control,
-    reset,
+    // reset,
   } = useForm({
     mode: 'onChange',
     reValidateMode: 'onChange',
@@ -78,12 +79,6 @@ const AddEmployee = () => {
     stateLabel,
     buttons,
   } = constants.addNewUser;
-
-  const onSubmit = () => {
-    // console.log('data', data);
-    //  add parameter and check output
-    reset();
-  };
 
   return (
     <div>
@@ -314,11 +309,11 @@ const AddEmployee = () => {
           type='button'
           label={buttons.submit}
           color='secondary'
-          onClick={handleSubmit(onSubmit)}
+          onClick={handleSubmit(handleOnSubmit)}
         />
       </form>
     </div>
   );
 };
 
-export default AddEmployee;
+export default AddEmployeeForm;

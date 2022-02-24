@@ -1,3 +1,3 @@
-import AddEmployee from './addEmployeeForm';
+import AddEmployeeForm from './addEmployeeForm';
 
-export { AddEmployee }; 
+export { AddEmployeeForm }; 
