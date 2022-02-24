@@ -10,9 +10,9 @@ import User from '../modules/users/user';
 import DatePickerDemo from '../../presentation/modules/layout/datePickerDemo';
 import { Login } from '../modules/login/index';
 import { Dashboard } from '../modules/dashboard/index';
-import { AddEmployee } from '../modules/addUser/index';
-import { ForgotPassword } from '../modules/forgotPassword/index';
-import { ResetPassword } from '../modules/resetPassword/index';
+import { AddEmployeeForm } from '../modules/addUser/index';
+import { ForgotPasswordForm } from '../modules/forgotPassword/index';
+import { ResetPasswordForm } from '../modules/resetPassword/index';
 
 function RoutesData() {
   return (
@@ -25,9 +25,9 @@ function RoutesData() {
         <Route path="/user" element={<User/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/addEmployee" element={<AddEmployee />} />
-        <Route path="/forgotPassword" element={<ForgotPassword />} />
-        <Route path="/resetPassword" element={<ResetPassword />} />
+        <Route path="/addEmployee" element={<AddEmployeeForm />} />
+        <Route path="/forgotPassword" element={<ForgotPasswordForm />} />
+        <Route path="/resetPassword" element={<ResetPasswordForm />} />
       </Routes>
     </BrowserRouter>
   );

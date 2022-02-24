@@ -1,18 +1,21 @@
 import * as Yup from 'yup';
+import { yupMessages } from '../../../../application/constants/yupMessageConstant';
+
+const { required, oneOf, matches } = yupMessages;
 
 const resetPassword = Yup.object({
   password: Yup.string()
-    .required('This field is required.')
+    .required(required)
     .matches(
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-      'Must Contain 6 Characters, One Uppercase, One Lowercase, One Number and one special case Character',
+      matches,
     ),
   confirm_password: Yup.string()
-    .required('This field is required.')
-    .oneOf([Yup.ref('password')], 'New password & confirm password must match.')
+    .required(required)
+    .oneOf([Yup.ref('password')], oneOf)
     .matches(
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-      'Must Contain 6 Characters, One Uppercase, One Lowercase, One Number and one special case Character',
+      matches,
     ),
 });
 

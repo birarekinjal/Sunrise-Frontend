@@ -59,8 +59,8 @@ const Login = () => {
       <h1>{title}</h1>
       <form>
         {/* Email */}
-        <label htmlFor='email' className='form-label'>
-          {emailPlaceholder}
+        <label data-testid='emailTest' htmlFor='email' className='form-label'>
+          {emailPlaceholder} 
         </label>
         <br></br>
         <Input

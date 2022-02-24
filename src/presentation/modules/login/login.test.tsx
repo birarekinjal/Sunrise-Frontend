@@ -3,6 +3,10 @@ import { Login } from '../login/index';
 import userEvent from '@testing-library/user-event';
 
 
+
+
+
+
 beforeEach(() => {
   render(<Login />);
 });
@@ -54,18 +58,11 @@ describe('Login', () => {
   test('button should be enable', () => {
     expect(screen.getByTestId('button', { name: 'submit' })).toBeEnabled();
   });
- 
 
-  // test('should get error if something went wrong', () => {
-  //   const emailInputElement = screen.getByRole('textbox', {
-  //     name: /email/i,
-  //   });
-  //   const passwordInputElement = screen.getByLabelText('Password');
-  //   // const submitBtnElement = screen.getByRole('button', {
-  //   //   name: /submit/i,
-  //   // });
-  //   userEvent.type(emailInputElement, 'demo@tntra.io');
-  //   userEvent.type(passwordInputElement, '123');
-  //   // userEvent.click(submitBtnElement);
-  // });
+  test('email label with correct text', () => {
+    // const { getByTestId } = render(<Login />);
+    // const emailElement = getByTestId('header');
+    expect(screen.getByTestId('emailTest').textContent).toBe('Email');
+  });
+ 
 });

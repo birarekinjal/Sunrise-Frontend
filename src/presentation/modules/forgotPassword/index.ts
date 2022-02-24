@@ -1,3 +1,3 @@
-import ForgotPassword from './forgotPasswordForm';
+import ForgotPasswordForm from './forgotPasswordForm';
 
-export { ForgotPassword };
+export { ForgotPasswordForm };

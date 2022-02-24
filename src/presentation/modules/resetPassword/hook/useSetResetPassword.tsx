@@ -1,9 +1,10 @@
 import { useDispatch } from 'react-redux';
+import { ResetPasswordModal } from '../resetPasswordModal';
 
 export const useSetResetPassword = () => {
   const dispatch = useDispatch();
 
-  const handleOnSubmit = (data: any) => {
+  const handleOnSubmit = ({ password, confirm_password }:ResetPasswordModal) => {
     
   };
 
