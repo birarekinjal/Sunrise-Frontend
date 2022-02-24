@@ -11,6 +11,8 @@ import DatePickerDemo from '../../presentation/modules/layout/datePickerDemo';
 import { Login } from '../modules/login/index';
 import { Dashboard } from '../modules/dashboard/index';
 import { AddEmployee } from '../modules/addUser/index';
+import { ForgotPassword } from '../modules/forgotPassword/index';
+import { ResetPassword } from '../modules/resetPassword/index';
 
 function RoutesData() {
   return (
@@ -24,6 +26,8 @@ function RoutesData() {
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/addEmployee" element={<AddEmployee />} />
+        <Route path="/forgotPassword" element={<ForgotPassword />} />
+        <Route path="/resetPassword" element={<ResetPassword />} />
       </Routes>
     </BrowserRouter>
   );

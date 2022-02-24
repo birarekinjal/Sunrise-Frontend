@@ -19,6 +19,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   withEndSvg,
   className,
   sx,
+  data_testid,
 }) => {
   return (
     <Button
@@ -31,6 +32,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       startIcon={withStartSvg || startIcon}
       endIcon={withEndSvg || endIcon}
       sx={sx}
+      data-testid={data_testid}
       disabled={disabled}>
       {isLoading && <Loader />}
       {label}

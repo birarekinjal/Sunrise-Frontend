@@ -27,4 +27,8 @@ export type SelectDropdownProps = {
   onChange?: any;
   children?: any;
   renderValue?: any;
+  options?: any;
+  multiple?: boolean;
+  error?: any;
+  showError?: boolean;
 };

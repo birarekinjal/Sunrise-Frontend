@@ -1,16 +1,25 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
-import { Button, Input } from '../../../infrastructure/components';
+import { useForm, Controller } from 'react-hook-form';
+import {
+  Button,
+  Input,
+  SelectDropdown,
+} from '../../../infrastructure/components';
 import schema from './schema/addEmployee';
+import {
+  options,
+  country,
+  state,
+} from '../../../application/constants/addUserConstant';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { constants } from '../../../application/constants/constant';
 
 const AddEmployee = () => {
-
   const {
     register,
     handleSubmit,
     formState: { errors },
-    // control,
+    control,
     reset,
   } = useForm({
     mode: 'onChange',
@@ -18,15 +27,57 @@ const AddEmployee = () => {
     defaultValues: {
       fistName: '',
       lastName: '',
-      IFSC_Code:'',
-      email:'',
-      mobile_no:'',
-      bankName:'',
-      address:'',
-      branchName:'',
+      ifscCode: '',
+      email: '',
+      mobile_no: '',
+      bankName: '',
+      address: '',
+      branchName: '',
+      pinCode: '',
+      city: '',
+      accountHolderName: '',
+      state: '',
+      country: '',
+      accountNumber: '',
+      designation: '',
+      secretary: '',
+      confirmAccountNumber: '',
     },
     resolver: yupResolver(schema),
   });
+
+  const {
+    accountLabel,
+    accountNumberLabel,
+    accountNumberPlaceholder,
+    accountPlaceholder,
+    addressLabel,
+    addressPlaceholder,
+    bankNameLabel,
+    bankNamePlaceholder,
+    branchNameLabel,
+    branchNamePlaceholder,
+    cityLabel,
+    cityNamePlaceholder,
+    countryLabel,
+    designationLabel,
+    designationPlaceholder,
+    emailLabel,
+    emailPlaceholder,
+    firstNameLabel,
+    firstNamePlaceholder,
+    ifscCodePlaceholder,
+    ifscLabel,
+    lastNameLabel,
+    lastNamePlaceholder,
+    mobileNumberLabel,
+    mobileNumberPlaceholder,
+    pincodeLabel,
+    pincodePlaceholder,
+    secretaryLabel,
+    stateLabel,
+    buttons,
+  } = constants.addNewUser;
 
   const onSubmit = () => {
     // console.log('data', data);
@@ -36,118 +87,236 @@ const AddEmployee = () => {
 
   return (
     <div>
-       <form>
+      <form>
         <Input
-          placeholder="Enter First Name Here..."
-          label="First Name"
-          variant="outlined"
+          placeholder={firstNamePlaceholder}
+          label={firstNameLabel}
+          variant='outlined'
           registeredEvents={register('fistName')}
-          name="fistName"
-          type="text"
+          name='fistName'
+          type='text'
           error={errors.fistName?.message}
           showError={true}
           required
-        />  <br></br><br></br>
-
+        />{' '}
+        <br></br>
+        <br></br>
         <Input
-          placeholder="Enter LastName Here..."
-          label="LastName"
-          variant="outlined"
+          placeholder={lastNamePlaceholder}
+          label={lastNameLabel}
+          variant='outlined'
           registeredEvents={register('lastName')}
-          name="lastName"
-          type="text"
+          name='lastName'
+          type='text'
           error={errors.lastName?.message}
           showError={true}
           required
-        /> <br></br><br></br>
-
-         <Input
-          placeholder="Enter IFSC_Code Here..."
-          label="IFSC_Code"
-          variant="outlined"
-          registeredEvents={register('IFSC_Code')}
-          name="IFSC_Code"
-          type="text"
-          error={errors.IFSC_Code?.message}
+        />{' '}
+        <br></br>
+        <br></br>
+        <Input
+          placeholder={ifscCodePlaceholder}
+          label={ifscLabel}
+          variant='outlined'
+          registeredEvents={register('ifscCode')}
+          name='ifscCode'
+          type='text'
+          error={errors.ifscCode?.message}
           showError={true}
           required
-        /> <br></br><br></br>
- 
-         {/* Email */}
+        />{' '}
+        <br></br>
+        <br></br>
+        {/* Email */}
         <Input
-          placeholder="Enter Email Here..."
-          label="Email"
-          variant="outlined"
+          placeholder={emailPlaceholder}
+          label={emailLabel}
+          variant='outlined'
           registeredEvents={register('email')}
-          name="email"
-          type="email"
+          name='email'
+          type='email'
           error={errors.email?.message}
           showError={true}
           required
         />
-        <br></br><br></br>
-
+        <br></br>
+        <br></br>
         <Input
-          placeholder="Enter Mobile No Here..."
-          label="Mobile No"
-          variant="outlined"
+          placeholder={mobileNumberPlaceholder}
+          label={mobileNumberLabel}
+          variant='outlined'
           registeredEvents={register('mobile_no')}
-          name="mobile_no"
-          type="text"
+          name='mobile_no'
+          type='text'
           error={errors.mobile_no?.message}
           showError={true}
           required
         />
-        <br></br><br></br>
-
+        <br></br>
+        <br></br>
         {/* BankName */}
         <Input
-          placeholder="Enter Bank Name Here..."
-          label="Bank Name"
-          variant="outlined"
+          placeholder={bankNamePlaceholder}
+          label={bankNameLabel}
+          variant='outlined'
           registeredEvents={register('bankName')}
-          name="bankName"
-          type="text"
+          name='bankName'
+          type='text'
           error={errors.bankName?.message}
           showError={true}
           required
         />
-        <br></br><br></br>
-
+        <br></br>
+        <br></br>
         <Input
-          placeholder="Enter Address Here..."
-          label="Address"
-          variant="outlined"
+          placeholder={addressPlaceholder}
+          label={addressLabel}
+          variant='outlined'
           registeredEvents={register('address')}
-          name="address"
-          type="text"
+          name='address'
+          type='text'
           error={errors.bankName?.message}
           showError={true}
           required
         />
-        <br></br><br></br>
-
+        <br></br>
+        <br></br>
         <Input
-          placeholder="Enter Branch Name Here..."
-          label="Branch Name"
-          variant="outlined"
+          placeholder={branchNamePlaceholder}
+          label={branchNameLabel}
+          variant='outlined'
           registeredEvents={register('branchName')}
-          name="branchName"
-          type="text"
+          name='branchName'
+          type='text'
           error={errors.branchName?.message}
           showError={true}
           required
         />
-        <br></br><br></br>
-
-        <Button 
-          type='button' 
-          label='submit' 
-          color='secondary' 
-          onClick={handleSubmit(onSubmit)} 
-          />
-        </form>
-
+        <br></br>
+        <br></br>
+        <Input
+          placeholder={pincodePlaceholder}
+          label={pincodeLabel}
+          variant='outlined'
+          registeredEvents={register('pinCode')}
+          name='pincode'
+          type='text'
+          error={errors.pinCode?.message}
+          showError={true}
+          required
+        />
+        <br></br>
+        <br></br>
+        <Input
+          placeholder={cityNamePlaceholder}
+          label={cityLabel}
+          variant='outlined'
+          registeredEvents={register('city')}
+          name='city'
+          type='text'
+          error={errors.city?.message}
+          showError={true}
+          required
+        />
+        <br></br>
+        <br></br>
+        <Controller
+          name='state'
+          control={control}
+          render={({ field }) => (
+            <SelectDropdown
+              value={field.value}
+              onChange={field.onChange}
+              error={errors?.state?.message}
+              showError={true}
+              options={state}
+              multiple={false}
+              label={stateLabel}
+            />
+          )}
+        />
+        <br></br>
+        <br></br>
+        <Controller
+          name='country'
+          control={control}
+          render={({ field }) => (
+            <SelectDropdown
+              value={field.value}
+              onChange={field.onChange}
+              error={errors?.country?.message}
+              showError={true}
+              options={country}
+              multiple={false}
+              label={countryLabel}
+            />
+          )}
+        />
+        <br></br>
+        <br></br>
+        <Input
+          placeholder={accountPlaceholder}
+          label={accountLabel}
+          variant='outlined'
+          registeredEvents={register('accountNumber')}
+          name='accountNumber'
+          type='text'
+          error={errors.accountNumber?.message}
+          showError={true}
+          required
+        />
+        <br></br>
+        <br></br>
+        <Input
+          placeholder={designationPlaceholder}
+          label={designationLabel}
+          variant='outlined'
+          registeredEvents={register('designation')}
+          name='designation'
+          type='text'
+          error={errors.designation?.message}
+          showError={true}
+          required
+        />
+        <br></br>
+        <br></br>
+        <Controller
+          name='secretary'
+          control={control}
+          render={({ field }) => (
+            <SelectDropdown
+              value={field.value}
+              onChange={field.onChange}
+              error={errors.secretary?.message}
+              showError={true}
+              options={options}
+              multiple={false}
+              label={secretaryLabel}
+            />
+          )}
+        />
+        <br></br>
+        <br></br>
+        <Input
+          placeholder={accountNumberPlaceholder}
+          label={accountNumberLabel}
+          variant='outlined'
+          registeredEvents={register('confirmAccountNumber')}
+          name='confirmAccountNumber'
+          type='text'
+          error={errors.confirmAccountNumber?.message}
+          showError={true}
+          required
+        />
+        <br></br>
+        <br></br>
+        <Button
+          type='button'
+          label={buttons.submit}
+          color='secondary'
+          onClick={handleSubmit(onSubmit)}
+        />
+      </form>
     </div>
   );
 };

@@ -1,13 +1,13 @@
 import { Visibility } from '@material-ui/icons';
 import React, { useState } from 'react';
-import { 
-  Button, 
-  Checkbox, 
-  Input, 
-  Modal, 
-  SelectDropdown, 
-  Loader, 
-  Tabs,
+import {
+  Button,
+  Checkbox,
+  Input,
+  Modal,
+  SelectDropdown,
+  Loader,
+  // Tabs,
   FullScreenLoader,
   Stepper,
   DatePicker,
@@ -20,19 +20,13 @@ import {
 import Send from '@mui/icons-material/Send';
 import { offerLabel } from '../../../application/constants/svgConstants';
 // import { options } from '../../../application/constants/constant';
-import AddForm from './addForm';
-
+// import AddForm from './addForm';
 
 const Layout = () => {
-
   const [open, setOpen] = useState(false);
   const [date, setDate] = useState();
   const [time, setTime] = useState();
   const [dateTime, setDateTime] = useState();
-
-  
- 
- 
 
   const modalFooterButtons = [
     {
@@ -51,49 +45,46 @@ const Layout = () => {
     },
   ];
 
-
-  const HandleToast = () => {
-    return (
-      <h1>ReactJS</h1>
-    );
-  };
+  // const HandleToast = () => {
+  //   return <h1>ReactJS</h1>;
+  // };
   const Botree = () => {
     return (
       <>
-      <h1>Botree</h1>
-      <Button type='button' label='submit' />
+        <h1>Botree</h1>
+        <Button type='button' label='submit' />
       </>
     );
   };
 
-  const TabsConstant = [
-    {
-      value: '1',
-      label: 'Form',
-      disabled: false,
-      component:  <AddForm />,
-      // icon: <DeleteIcon />,
-      iconPosition: 'start',
-    },
-    {
-      value: '2',
-      label: 'Botree',
-      // icon: <DeleteIcon />,
-      iconPosition: 'end',
-      component: <Botree />,
-    },
-    {
-      value: '3',
-      label: 'Java',
-      disabled: true,
-      component: <HandleToast />,
-    },
-    {
-      value: '4',
-      label: 'Dajngo',
-      component: <Botree />,
-    },
-  ];
+  // const TabsConstant = [
+  //   {
+  //     value: '1',
+  //     label: 'Form',
+  //     disabled: false,
+  //     component: <AddForm />,
+  //     // icon: <DeleteIcon />,
+  //     iconPosition: 'start',
+  //   },
+  //   {
+  //     value: '2',
+  //     label: 'Botree',
+  //     // icon: <DeleteIcon />,
+  //     iconPosition: 'end',
+  //     component: <Botree />,
+  //   },
+  //   {
+  //     value: '3',
+  //     label: 'Java',
+  //     disabled: true,
+  //     component: <HandleToast />,
+  //   },
+  //   {
+  //     value: '4',
+  //     label: 'Dajngo',
+  //     component: <Botree />,
+  //   },
+  // ];
 
   const names = [
     'Oliver Hansen',
@@ -111,12 +102,12 @@ const Layout = () => {
   const handleModalOpen = () => {
     setOpen(true);
   };
-  
+
   const handleModalClose = () => {
     setOpen(!open);
   };
 
-  const getStepContents = (step:any) => {
+  const getStepContents = (step: any) => {
     switch (step) {
       case 0:
         return <Botree />;
@@ -136,197 +127,193 @@ const Layout = () => {
     'Payment',
   ];
 
-  const handleSwitch = (e:any) => {
+  const handleSwitch = (e: any) => {
     alert(e.target.checked);
   };
-
-
 
   return (
     <div>
       <>
+        <h1>Tabs</h1>
+        {/* <Tabs data={TabsConstant} /> */}
+        <br></br>
+        <br></br>
 
-      <h1>Tabs</h1>
-      <Tabs data={TabsConstant} /><br></br><br></br>
-     
-      
-      <h1>Upload Doc</h1>
-      <FileUpload accept={'image/*'} />
-      <DataNotFound errorMessage='No Data Found' />
-      <h1>Switch</h1>
-      <Switch color='secondary' onChange={(e:any) =>handleSwitch(e)} />
-      <h1>DateTimePicker</h1>
-      <DateTimePicker
-      value={dateTime}
-      onChange={(e:any) => setDateTime(e)}
-      />
-      <h1>TimePicker</h1>
-      <TimePicker 
-      value={time}
-      onChange={(e:any) => setTime(e)}
-      />
-      <h1>DatePicker</h1>
-      <DatePicker 
-      value={date}
-      onChange={(e:any) => setDate(e)}
-      />
-      <h1>Stepper Form</h1><br></br>
-      <Stepper 
-      getStepContent={getStepContents} 
-      steps={steps}
-      activeStep={1}
-      optionalPageNumber={2}
-      /><br></br>
+        <h1>Upload Doc</h1>
+        <FileUpload accept={'image/*'} />
+        <DataNotFound errorMessage='No Data Found' />
+        <h1>Switch</h1>
+        <Switch color='secondary' onChange={(e: any) => handleSwitch(e)} />
+        <h1>DateTimePicker</h1>
+        <DateTimePicker
+          value={dateTime}
+          onChange={(e: any) => setDateTime(e)}
+        />
+        <h1>TimePicker</h1>
+        <TimePicker value={time} onChange={(e: any) => setTime(e)} />
+        <h1>DatePicker</h1>
+        <DatePicker value={date} onChange={(e: any) => setDate(e)} />
+        <h1>Stepper Form</h1>
+        <br></br>
+        <Stepper
+          getStepContent={getStepContents}
+          steps={steps}
+          activeStep={1}
+          optionalPageNumber={2}
+        />
+        <br></br>
 
-      <h1>Normal Modal</h1>
-      {
-        open && (
-          <Modal 
-          buttons={modalFooterButtons} 
-          title='Heading Title' 
-          isModalVisible={open} 
-          toggleModal={handleModalClose}>
-        <div>Modal with Footer Button</div>
-      </Modal>
-        )
-      }
+        <h1>Normal Modal</h1>
+        {open && (
+          <Modal
+            buttons={modalFooterButtons}
+            title='Heading Title'
+            isModalVisible={open}
+            toggleModal={handleModalClose}>
+            <div>Modal with Footer Button</div>
+          </Modal>
+        )}
 
+        <Button
+          type='button'
+          label='Open Modal'
+          onClick={() => handleModalOpen()}
+        />
 
-      <Button type='button' label='Open Modal' onClick={() => handleModalOpen()}  />
-
-      <h1>FullScreenLoader</h1>
-      <FullScreenLoader color='secondary' label='Show Loader' />
-      <h1>Loader</h1>
-      <Loader color='secondary'/>
-      {/* <Loader color='primary' thickness={1.5}/>
+        <h1>FullScreenLoader</h1>
+        <FullScreenLoader color='secondary' label='Show Loader' />
+        <h1>Loader</h1>
+        <Loader color='secondary' />
+        {/* <Loader color='primary' thickness={1.5}/>
       <Loader color='secondary' thickness={15} /> */}
-      <br></br><br></br>
-      <h1>Select dropdown</h1>
-      <SelectDropdown 
+        <br></br>
+        <br></br>
+        <h1>Select dropdown</h1>
+        <SelectDropdown
           names={names}
-          label="select all" 
-          isCheckbox={true}    
-          isMultiple={true}  
-      />
+          label='select all'
+          isCheckbox={true}
+          isMultiple={true}
+        />
 
-     <h1> Button Component </h1>
+        <h1> Button Component </h1>
 
         <h1>Using Color</h1>
         <Button
-          label="inherit"
-          color="inherit"
+          label='inherit'
+          color='inherit'
           onClick={() => alert('inherit')}
         />
         <Button
-          label="primary"
-          color="primary"
+          label='primary'
+          color='primary'
           onClick={() => alert('primary')}
         />
         <Button
-          label="secondary"
-          color="secondary"
+          label='secondary'
+          color='secondary'
           onClick={() => alert('secondary')}
         />
         <Button
-          label="success"
-          color="success"
+          label='success'
+          color='success'
           onClick={() => alert('success')}
         />
-        <Button label="error" color="error" onClick={() => alert('error')} />
-        <Button label="info" color="info" onClick={() => alert('info')} />
+        <Button label='error' color='error' onClick={() => alert('error')} />
+        <Button label='info' color='info' onClick={() => alert('info')} />
         <Button
-          label="warning"
-          color="warning"
+          label='warning'
+          color='warning'
           onClick={() => alert('warning')}
         />
         <br></br>
         <br></br>
         <h1>Variant outlined</h1>
         <Button
-          label="inherit"
-          color="inherit"
-          variant="outlined"
+          label='inherit'
+          color='inherit'
+          variant='outlined'
           onClick={() => alert('inherit')}
         />
         <Button
-          label="primary"
-          color="primary"
-          variant="outlined"
+          label='primary'
+          color='primary'
+          variant='outlined'
           onClick={() => alert('primary')}
         />
         <Button
-          label="secondary"
-          color="secondary"
-          variant="outlined"
+          label='secondary'
+          color='secondary'
+          variant='outlined'
           onClick={() => alert('secondary')}
         />
         <Button
-          label="success"
-          color="success"
-          variant="outlined"
+          label='success'
+          color='success'
+          variant='outlined'
           onClick={() => alert('success')}
         />
         <Button
-          label="error"
-          color="error"
-          variant="outlined"
+          label='error'
+          color='error'
+          variant='outlined'
           onClick={() => alert('error')}
         />
         <Button
-          label="info"
-          color="info"
-          variant="outlined"
+          label='info'
+          color='info'
+          variant='outlined'
           onClick={() => alert('info')}
         />
         <Button
-          label="warning"
-          color="warning"
-          variant="outlined"
+          label='warning'
+          color='warning'
+          variant='outlined'
           onClick={() => alert('warning')}
         />
         <br></br>
         <br></br>
         <h1>Append Icons</h1>
         <Button
-          label="inherit"
-          color="inherit"
-          variant="text"
+          label='inherit'
+          color='inherit'
+          variant='text'
           onClick={() => alert('inherit')}
         />
         <Button
-          label="primary"
-          color="primary"
-          variant="text"
+          label='primary'
+          color='primary'
+          variant='text'
           onClick={() => alert('primary')}
         />
         <Button
-          label="secondary"
-          color="secondary"
-          variant="text"
+          label='secondary'
+          color='secondary'
+          variant='text'
           onClick={() => alert('secondary')}
         />
         <Button
-          label="success"
-          color="success"
-          variant="text"
+          label='success'
+          color='success'
+          variant='text'
           onClick={() => alert('success')}
         />
         <Button
-          label="error"
-          color="error"
-          variant="text"
+          label='error'
+          color='error'
+          variant='text'
           onClick={() => alert('error')}
         />
         <Button
-          label="info"
-          color="info"
-          variant="text"
+          label='info'
+          color='info'
+          variant='text'
           onClick={() => alert('info')}
         />
         <Button
-          label="warning"
-          color="warning"
-          variant="text"
+          label='warning'
+          color='warning'
+          variant='text'
           onClick={() => alert('warning')}
         />
         <br></br>
@@ -334,46 +321,46 @@ const Layout = () => {
 
         <h1>Prepend Icon</h1>
         <Button
-          label="inherit"
-          color="inherit"
+          label='inherit'
+          color='inherit'
           // startIcon={<Visibility/>}
           withStartSvg={offerLabel}
           withEndSvg={offerLabel}
           onClick={() => alert('inherit')}
         />
         <Button
-          label="primary"
-          color="primary"
+          label='primary'
+          color='primary'
           startIcon={<Visibility />}
           onClick={() => alert('primary')}
         />
         <Button
-          label="secondary"
-          color="secondary"
+          label='secondary'
+          color='secondary'
           startIcon={<Visibility />}
           onClick={() => alert('secondary')}
         />
         <Button
-          label="success"
-          color="success"
+          label='success'
+          color='success'
           startIcon={<Visibility />}
           onClick={() => alert('success')}
         />
         <Button
-          label="error"
-          color="error"
+          label='error'
+          color='error'
           startIcon={<Visibility />}
           onClick={() => alert('error')}
         />
         <Button
-          label="info"
-          color="info"
+          label='info'
+          color='info'
           startIcon={<Visibility />}
           onClick={() => alert('info')}
         />
         <Button
-          label="warning"
-          color="warning"
+          label='warning'
+          color='warning'
           startIcon={<Visibility />}
           onClick={() => alert('warning')}
         />
@@ -382,44 +369,44 @@ const Layout = () => {
 
         <h1>Append Icon</h1>
         <Button
-          label="inherit"
-          color="inherit"
+          label='inherit'
+          color='inherit'
           endIcon={<Send />}
           onClick={() => alert('inherit')}
         />
         <Button
-          label="primary"
-          color="primary"
+          label='primary'
+          color='primary'
           endIcon={<Send />}
           onClick={() => alert('primary')}
         />
         <Button
-          label="secondary"
-          color="secondary"
+          label='secondary'
+          color='secondary'
           endIcon={<Send />}
           onClick={() => alert('secondary')}
         />
         <Button
-          label="success"
-          color="success"
+          label='success'
+          color='success'
           endIcon={<Send />}
           onClick={() => alert('success')}
         />
         <Button
-          label="error"
-          color="error"
+          label='error'
+          color='error'
           endIcon={<Send />}
           onClick={() => alert('error')}
         />
         <Button
-          label="info"
-          color="info"
+          label='info'
+          color='info'
           endIcon={<Send />}
           onClick={() => alert('info')}
         />
         <Button
-          label="warning"
-          color="warning"
+          label='warning'
+          color='warning'
           endIcon={<Send />}
           onClick={() => alert('warning')}
         />
@@ -428,50 +415,71 @@ const Layout = () => {
 
         <h1>With Loader</h1>
         <Button
-          label="inherit"
-          color="inherit"
+          label='inherit'
+          color='inherit'
           isLoading
           onClick={() => alert('inherit')}
         />
         <Button
-          label="primary"
-          color="primary"
+          label='primary'
+          color='primary'
           isLoading
           onClick={() => alert('primary')}
         />
         <Button
-          label="secondary"
-          color="secondary"
+          label='secondary'
+          color='secondary'
           isLoading
           onClick={() => alert('secondary')}
         />
         <Button
-          label="success"
-          color="success"
+          label='success'
+          color='success'
           isLoading
           onClick={() => alert('success')}
         />
         <Button
-          label="error"
-          color="error"
+          label='error'
+          color='error'
           isLoading
           onClick={() => alert('error')}
         />
         <Button
-          label="info"
-          color="info"
+          label='info'
+          color='info'
           isLoading
           onClick={() => alert('info')}
-        /><br></br><br></br>
+        />
+        <br></br>
+        <br></br>
 
-      <h1>Input with type and required props</h1>
-      <Input type='text'  required placeholder='Enter Text..' label='Enter Text' name='text' /><br></br><br></br>
+        <h1>Input with type and required props</h1>
+        <Input
+          type='text'
+          required
+          placeholder='Enter Text..'
+          label='Enter Text'
+          name='text'
+        />
+        <br></br>
+        <br></br>
 
-      <h1>Input with multiline props</h1>
-      <Input type='text' maxRows='10' multiLine={true} color='primary' placeholder='Enter Text..' label='Enter Text' name='text' /><br></br><br></br>
-    
-      <br></br><br></br>
-    
+        <h1>Input with multiline props</h1>
+        <Input
+          type='text'
+          maxRows='10'
+          multiLine={true}
+          color='primary'
+          placeholder='Enter Text..'
+          label='Enter Text'
+          name='text'
+        />
+        <br></br>
+        <br></br>
+
+        <br></br>
+        <br></br>
+
         <h1> Check Box</h1>
         <Checkbox color='default' label='default' checked size='small' />
       </>

@@ -9,7 +9,7 @@ import Modal from './modal/modal';
 import RadioButton from './radio/radio';
 import Toaster from './toast/toaster';
 import ToolTip from './toolTip/toolTip';
-import Tabs from './tabs/tabs';
+// import Tabs from './tabs/tabs';
 import Stepper from './stepper/stepper';
 import DatePicker from './dateTimePicker/datePicker';
 import TimePicker from './dateTimePicker/timePicker';
@@ -21,6 +21,7 @@ import Switch from './switch/customSwitch';
 import DataNotFound from './dataNotFound/dataNotFound';
 import FileUpload from './fileUpload/uploadFile';
 import NumberCount from './number/numberCount';
+import OTP from './otpSection/customOtp';
 
 export {
   Button,
@@ -34,7 +35,7 @@ export {
   RadioButton,
   Toaster,
   ToolTip,
-  Tabs,
+  // Tabs,
   Stepper,
   DatePicker,
   TimePicker,
@@ -46,4 +47,5 @@ export {
   DataNotFound,
   FileUpload,
   NumberCount,
+  OTP,
 };

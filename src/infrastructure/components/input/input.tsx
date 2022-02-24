@@ -29,8 +29,8 @@ const CustomInput: React.FC<CustomInputProps> = ({
   helperText,
   error,
   showError,
+  className,
 }) => {
-
   return (
     <FormControl variant='standard'>
       {isControlled ? (
@@ -43,7 +43,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
           autoFocus={autoFocus}
           defaultValue={defaultValue}
           disabled={disabled}
-          color={color}
+          color={color || 'primary'}
           type={type}
           value={value}
           variant={variant}
@@ -55,19 +55,21 @@ const CustomInput: React.FC<CustomInputProps> = ({
           multiline={multiLine}
           InputProps={inputProps}
           helperText={helperText}
+          className={className}
         />
       ) : (
         <TextField
           {...(registeredEvents || {})}
           id={id}
-          label={label}
-          placeholder={placeholder}
+          className={className}
+          label={label || ''}
+          placeholder={placeholder || ''}
           onChange={onChange}
           autoComplete={autoComplete}
           autoFocus={autoFocus}
           defaultValue={defaultValue}
           disabled={disabled}
-          color={color}
+          color={color || 'primary'}
           type={type}
           value={value}
           variant={variant}

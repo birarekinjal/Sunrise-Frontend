@@ -20,4 +20,5 @@ export type CustomButtonProps = {
   | 'error'
   | 'info'
   | 'warning';
+  data_testid?: any;
 };

@@ -1,11 +1,11 @@
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { 
-  Button, 
-  Input, 
-  NumberCount, 
-  DatePicker, 
-  TimePicker, 
+import {
+  Button,
+  Input,
+  NumberCount,
+  DatePicker,
+  TimePicker,
   DateTimePicker,
   Switch,
   Checkbox,
@@ -20,22 +20,14 @@ import {
 // import Select from '@mui/material/Select';
 // import Checkbox from '@mui/material/Checkbox';
 
-
-
 const AddForm = () => {
-
-
-  const names = [
-    'Oliver Hansen',
-    'Van Henry',
-    'April Tucker',
-    'Ralph Hubbard',
-    'Omar Alexander',
-    'Carlos Abbott',
-    'Miriam Wagner',
-    'Bradley Wilkerson',
-    'Virginia Andrews',
-    'Kelly Snyder',
+  const options = [
+    { name: 'Oliver Hansen', value: 'Oliver Hansen' },
+    { name: 'Van Henry', value: 'Van Henry ' },
+    { name: 'April Tucker', value: 'April Tucker' },
+    { name: 'Ralph Hubbard', value: 'Ralph Hubbard' },
+    { name: 'Omar Alexander', value: 'Omar Alexander' },
+    { name: 'Carlos Abbott', value: 'Carlos Abbott' },
   ];
 
   const {
@@ -43,133 +35,135 @@ const AddForm = () => {
     handleSubmit,
     formState: { errors },
     control,
-    reset,
+    // reset,
   } = useForm({
     mode: 'onChange',
     reValidateMode: 'onChange',
     defaultValues: {
       email: '',
       password: '',
-      count:'',
-      date:'',
-      time:'',
-      dateTime:'',
-      checkSwitch:'',
-      checkbox:'',
-      selectMenu:'',
+      count: '',
+      date: '',
+      time: '',
+      dateTime: '',
+      checkSwitch: '',
+      checkbox: '',
+      selectMenu: [],
     },
     // resolver: yupResolver(schema),
   });
 
   const onSubmit = () => {
-    reset();
+    //  console.log(data, 'Submit Data');
+    // reset();
   };
-
 
   return (
     <div>
-       <form>
-         {/* Email */}
+      <form>
+        {/* Email */}
         <Input
-          placeholder="Enter Email Here..."
-          label="Email"
-          variant="outlined"
+          placeholder='Enter Email Here...'
+          label='Email'
+          variant='outlined'
           registeredEvents={register('email')}
-          name="email"
-          type="email"
+          name='email'
+          type='email'
           error={errors.email?.message}
           showError={true}
           required
         />
-        <br></br><br></br>
-
+        <br></br>
+        <br></br>
         {/* Password */}
         <Input
-          placeholder="Enter Password Here..."
-          label="Password"
-          variant="outlined"
+          placeholder='Enter Password Here...'
+          label='Password'
+          variant='outlined'
           registeredEvents={register('password')}
-          name="password"             
-          type="password"
+          name='password'
+          type='password'
           error={errors.password?.message}
           showError={true}
           // inputProps={{ endAdornment: handleIcon('end') }}
           required
         />
-        <br></br><br></br>
-
+        <br></br>
+        <br></br>
         {/* Number  */}
-        <NumberCount 
-          placeholder='count' 
-          label='ccc' 
+        <NumberCount
+          placeholder='count'
+          label='ccc'
           variant='outlined'
           registeredEvents={register('count')}
           name='count'
-        /> <br></br><br></br>
-
+        />{' '}
+        <br></br>
+        <br></br>
         {/* Date picker */}
-        <Controller 
+        <Controller
           control={control}
           name={'date'}
-          render={({ field: { onChange,  onBlur, value, ref } }) => (
+          render={({ field: { onChange, onBlur, value, ref } }) => (
             <DatePicker
-            onChange={ onChange }
-            value={value}
-            onBlur={onBlur}
-            ref={ref}
+              onChange={onChange}
+              value={value}
+              onBlur={onBlur}
+              ref={ref}
             />
           )}
-        /> <br></br><br></br>
-
-
-            {/* Time Picker */}
-        <Controller 
-            control={control}
-            name={'time'}
-            render={({ field: { onChange,  onBlur, value, ref } }) => (
-              <TimePicker
-              onChange={ onChange }
+        />{' '}
+        <br></br>
+        <br></br>
+        {/* Time Picker */}
+        <Controller
+          control={control}
+          name={'time'}
+          render={({ field: { onChange, onBlur, value, ref } }) => (
+            <TimePicker
+              onChange={onChange}
               value={value}
               onBlur={onBlur}
               ref={ref}
-              />
-            )}
-          /> <br></br><br></br>
-
-
-              {/* dateTime picker */}
-        <Controller 
+            />
+          )}
+        />{' '}
+        <br></br>
+        <br></br>
+        {/* dateTime picker */}
+        <Controller
           control={control}
           name={'dateTime'}
-          render={({ field: { onChange,  onBlur, value, ref } }) => (
+          render={({ field: { onChange, onBlur, value, ref } }) => (
             <DateTimePicker
-              onChange={ onChange }
+              onChange={onChange}
               value={value}
               onBlur={onBlur}
               ref={ref}
-              />
+            />
           )}
-         /> <br></br><br></br>
-
-           {/* switch */}
+        />{' '}
+        <br></br>
+        <br></br>
+        {/* switch */}
         <Controller
           control={control}
           name={'checkSwitch'}
-          render={({ field  }) => (
-            <Switch {...field} />
+          render={({ field }) => <Switch {...field} />}
+        />{' '}
+        <br></br>
+        <br></br>
+        {/* checkbox */}
+        <Controller
+          name='checkbox'
+          control={control}
+          render={({ field }) => (
+            <Checkbox {...field} label={'subject'} color='secondary' />
           )}
-        /> <br></br><br></br>
-
-
-            {/* checkbox */}
-      <Controller
-        name="checkbox"
-        control={control}
-        render={({ field }) => <Checkbox {...field}  label={'subject'} color='secondary'/>}
-      /> <br></br><br></br>
-
-
-          {/* <Controller 
+        />{' '}
+        <br></br>
+        <br></br>
+        {/* <Controller 
               name='selectMenu'
                 control={control}
                 render={({ field }) => (
@@ -188,24 +182,20 @@ const AddForm = () => {
                 )
             }
           /> */}
-
-
-        <Controller 
-              name='selectMenu'
-                control={control}
-                render={({ field }) => (
-                    <SelectDropdown
-                      value={field.value} 
-                      onChange={field.onChange}
-                      names={names}
-                      label='Select'
-                    />
-                    
-                )
-            }
-          />
-
-{/* 
+        <Controller
+          name='selectMenu'
+          control={control}
+          render={({ field }) => (
+            <SelectDropdown
+              value={field.value}
+              onChange={field.onChange}
+              options={options}
+              multiple={true}
+              label='Select'
+            />
+          )}
+        />
+        {/* 
       <FormControl sx={{ m: 1, width: 300 }}>
         <InputLabel id="demo-multiple-checkbox-label">Tag</InputLabel>
             <Controller 
@@ -234,14 +224,7 @@ const AddForm = () => {
           }
           />
       </FormControl> */}
-
-
-
-
-     
-   
-
-        <Button type="button" label="submit" onClick={handleSubmit(onSubmit)} />
+        <Button type='button' label='submit' onClick={handleSubmit(onSubmit)} />
       </form>
     </div>
   );

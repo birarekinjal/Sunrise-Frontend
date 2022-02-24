@@ -5,7 +5,7 @@ export type CustomInputProps = {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   autoComplete?: string;
   autoFocus?: boolean;
-  color?: 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning';
+  color?: 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning' | undefined;
   defaultValue?: any;
   disabled?: boolean;
   type?: string;
@@ -23,4 +23,5 @@ export type CustomInputProps = {
   error?: any;
   showError?: boolean;
   helperText?: React.ReactNode;
+  className?: any;
 };
