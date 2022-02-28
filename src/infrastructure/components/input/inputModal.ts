@@ -24,4 +24,5 @@ export type CustomInputProps = {
   showError?: boolean;
   helperText?: React.ReactNode;
   className?: any;
+  data_testid?: any;
 };

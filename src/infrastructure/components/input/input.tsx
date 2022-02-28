@@ -30,6 +30,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   error,
   showError,
   className,
+  data_testid,
 }) => {
   return (
     <FormControl variant='standard'>
@@ -56,6 +57,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
           InputProps={inputProps}
           helperText={helperText}
           className={className}
+          data-testid={data_testid}
         />
       ) : (
         <TextField
@@ -82,6 +84,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
           multiline={multiLine}
           error={error}
           helperText={helperText}
+          data-testid={data_testid}
         />
       )}
       {showError && error && (

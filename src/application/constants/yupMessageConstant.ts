@@ -5,4 +5,6 @@ export const yupMessages = {
   oneOf: 'New password & confirm password must match.',
   typeError: 'Value must be a number.',
   validNumber: 'Enter valid number',
+  maxPassword: "Password can't be longer than 12 characters.",
+  minPassword: 'Password must be 6 to 12 characters long.',
 };

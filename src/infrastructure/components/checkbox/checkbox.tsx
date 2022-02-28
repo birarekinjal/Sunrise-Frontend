@@ -18,6 +18,7 @@ const CustomCheckBox: React.FC<CheckboxProps> = ({
   label,
   isControlled,
   registeredEvents,
+  data_testId,
 }) => {
   return (
     <>
@@ -35,6 +36,7 @@ const CustomCheckBox: React.FC<CheckboxProps> = ({
                 required={required}
                 value={value}
                 onChange={onChange}
+                data-testid={data_testId}
               />
           {label}
             </>
@@ -52,6 +54,7 @@ const CustomCheckBox: React.FC<CheckboxProps> = ({
                 required={required}
                 value={value}
                 onChange={onChange}
+                data-testid={data_testId}
               />
             {label}
             </>

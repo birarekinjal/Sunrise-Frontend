@@ -13,6 +13,7 @@ import { Dashboard } from '../modules/dashboard/index';
 import { AddEmployeeForm } from '../modules/addUser/index';
 import { ForgotPasswordForm } from '../modules/forgotPassword/index';
 import { ResetPasswordForm } from '../modules/resetPassword/index';
+import { CreateUserForm } from '../modules/user/index';
 
 function RoutesData() {
   return (
@@ -28,6 +29,7 @@ function RoutesData() {
         <Route path="/addEmployee" element={<AddEmployeeForm />} />
         <Route path="/forgotPassword" element={<ForgotPasswordForm />} />
         <Route path="/resetPassword" element={<ResetPasswordForm />} />
+        <Route path="/createUser" element={<CreateUserForm />} />
       </Routes>
     </BrowserRouter>
   );

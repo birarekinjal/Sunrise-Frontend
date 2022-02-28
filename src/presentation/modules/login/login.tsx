@@ -60,11 +60,12 @@ const Login = () => {
       <form>
         {/* Email */}
         <label data-testid='emailTest' htmlFor='email' className='form-label'>
-          {emailPlaceholder} 
+          {emailPlaceholder}
         </label>
         <br></br>
         <Input
           placeholder={emailPlaceholder}
+          data_testid='email'
           label='Email'
           variant='outlined'
           registeredEvents={register('email')}
@@ -77,12 +78,16 @@ const Login = () => {
         <br></br>
         <br></br>
         {/* Password */}
-        <label htmlFor='password' className='form-label'>
+        <label
+          data-testid='passwordLabel'
+          htmlFor='password'
+          className='form-label'>
           {passwordPlaceholder}
         </label>
         <br></br>
         <Input
           placeholder={passwordPlaceholder}
+          data_testid='password'
           id='password'
           label='Password'
           variant='outlined'
@@ -115,6 +120,7 @@ const Login = () => {
           render={({ field }) => (
             <Checkbox
               {...field}
+              data_testId='check'
               label={rememberMePlaceholder}
               color='secondary'
             />

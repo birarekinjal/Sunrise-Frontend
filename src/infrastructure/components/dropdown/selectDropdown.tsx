@@ -25,7 +25,7 @@ const SelectDropdown = ({
             labelId="demo-multiple-name-label"
             id="demo-multiple-name"
             multiple={multiple}
-            value={value}
+            value={value || ''}
             onChange={onChange}
             error={error}
             input={<OutlinedInput label={label} />}
