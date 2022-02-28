@@ -138,6 +138,7 @@ const Login = () => {
           type='button'
           label={buttons.login}
           color='secondary'
+          disabled
           data_testid='button'
           onClick={handleSubmit(onSubmit)}
         />

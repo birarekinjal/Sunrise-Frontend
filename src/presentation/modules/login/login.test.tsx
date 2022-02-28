@@ -49,9 +49,7 @@ describe('Login', () => {
     expect(passwordInputElement.value).toBe('password');
   });
 
-  test('button should be enable', () => {
-    expect(screen.getByTestId('button', { name: 'submit' })).toBeEnabled();
-  });
+
 
   test('email label with correct text', () => {
     expect(screen.getByTestId('emailTest').textContent).toBe('Email');
@@ -65,13 +63,6 @@ describe('Login', () => {
     expect(screen.getByTestId('button').textContent).toBe('Login');
   });
 
-  test('input value with correct text', () => {
-    expect(screen.getByTestId('email')).toBeInTheDocument('a@tntra.io');
-  });
-
-  test('password value with correct text', () => {
-    expect(screen.getByTestId('password')).toBeInTheDocument('123456');
-  });
 
   test('password with empty value', () => {
     expect(screen.getByTestId('password')).toBeInTheDocument();
@@ -83,14 +74,60 @@ describe('Login', () => {
   });
 
 
-  test('checkbox with empty label value', () => {
+  test('checkbox id should not be empty ', () => {
     expect(screen.getByTestId('check')).toBeInTheDocument();
   });
 
-  test('checkbox with label', () => {
-    const checkboxLabel = screen.getByTestId('check');
-    expect(checkboxLabel.textContent).toBe('Remember Me');
+  // test('button should be enable', () => {
+  //   expect(screen.getByTestId('button')).toBeEnabled();
+  // });
+
+
+  test('should enable the "Add" button when a valid input is entered', () => {
+
+    expect(screen.getByTestId('button')).toBeDisabled();
+
+    const input = screen.getByTestId('email');
+    fireEvent.change(input, { target: { value: '' } });
+
+    // expect(screen.getByTestId('button')).toHaveAttribute('disabled');
   });
+
+  // test('should clear the input upon clicking the "Add" button', () => {
+
+  //   const input = screen.getByRole('textbox');
+  //   const addButton = screen.getByTestId('button');
+
+  //   fireEvent.change(input, { target: { value: 'tntra' } });
+  //   fireEvent.click(addButton);
+
+  //   expect(input.value).toBe('');
+  // });
+
+
+  // test('should have the "Add" button disabled if the input is less than 2 chars', () => {
+
+  //   const input = screen.getByRole('textbox');
+  //   fireEvent.change(input, { target: { value: 'm' } });
+
+  //   expect(screen.getByTestId('button')).toBeEnabled();
+  // });
+
+
+  // test('checkbox is checked and unchecked', () => {
+  //   expect(screen.getByTestId('check')).toEqual(true);
+  // });
+
+  // test('check ', () => {
+  //   expect(screen.getByTestId('check')).not.toBeInTheDocument(1);
+  // });
+  
+
+
+  // test('checkbox with label', () => {
+  //   const checkboxLabel = screen.getByTestId('check');
+  //   expect(checkboxLabel.textContent).toBe('Remember Me');
+  // });
 
   // const input = screen.getByRole('textbox', { name: 'email' });
   // fireEvent.keyDown(input, { key: 'ArrowDown' });

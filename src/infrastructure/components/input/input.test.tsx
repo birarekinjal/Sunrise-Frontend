@@ -1,8 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Input from './input';
 import '@testing-library/jest-dom';
-
-
 
 describe('Input component with label props', () => {
   test('check the Input render with label', async () => {
@@ -30,7 +28,6 @@ describe('Input component with label props', () => {
     expect(screen.getByText('helper Text')).toBeInTheDocument();
 
     expect(screen.getByDisplayValue('text')).toBeInTheDocument();
-
   });
 
   test('check input with empty fields', () => {
@@ -50,28 +47,22 @@ describe('Input component with label props', () => {
     expect(screen.getByPlaceholderText('')).toBeInTheDocument();
   });
 
+  test('calls the onChange callback handler ', () => {
+    const onChange = jest.fn();
+    render(<Input onChange={onChange} value='' />);
+    fireEvent.change(screen.getByRole('textbox'), {
+      target: { value: 'JavaScript' },
+    });
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
 
-  // test('has correct input value', () => {
-  //   render(<Input  label="John" value="value"/>);
-  //   expect(screen.getByRole('textbox')).toHaveValue({
-  //     value: 'value',
-  //     label: 'John',
-  //   });
-  // });
 
   // test('should be able to type an email', () => {
   //   render(<Input name='email' type='textbox' />);
   //   const emailInputElement = screen.getByRole('textbox', {
-  //     name: /email/i, 
+  //     name: /email/i,
   //   });
   //   userEvent.type(emailInputElement, 'demo@tntra.com');
   //   expect(emailInputElement.value).toBe('demo@tntra.com');
   // });
 });
-
-
-
-
-
-
-

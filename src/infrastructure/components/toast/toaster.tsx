@@ -12,7 +12,19 @@ const CustomToster: React.FC<ToasterProps> = ({
         position={position}
         reverseOrder={reverseOrder}
         gutter={gutter}
-        toastOptions={{ duration: 3000 }}
+        toastOptions={{
+          success: {
+            style: {
+              background: 'green',
+            },
+          },
+          error: {
+            style: {
+              background: 'red',
+            },
+          },
+          duration : 3000,
+        }}
       />
     </>
   );

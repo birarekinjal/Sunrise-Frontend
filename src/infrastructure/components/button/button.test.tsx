@@ -52,4 +52,13 @@ describe('button component assign Testing Id', () => {
     expect(testingId).not.toHaveClass('Mui-disabled');
 
   });
+
+
+  // test('calls onClick prop when clicked', () => {
+  //   const handleClick = jest.fn();
+  //   render(<Button onClick={handleClick} label='click me'/>);
+  //   fireEvent.click(screen.getByText(/click me/i));
+  //   expect(handleClick).toHaveBeenCalledTimes(1);
+  // });
+
 });

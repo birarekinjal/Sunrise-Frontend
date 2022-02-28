@@ -10,11 +10,7 @@ const user = Yup.object({
     .min(6, minPassword)
     .max(12, maxPassword),
   role: Yup.string().required(required),
-  // permissions: Yup.mixed().when('isArray', { is: Array.isArray,
-  //   then: Yup.array().of(Yup.string()).required(required).nullable(),
-  //   otherwise: Yup.string().required(required),
-  // }),
-  permissions: Yup.array().required(required).nullable(),
+  permissions: Yup.array().min(1, required),
 });
 
 export default user;
